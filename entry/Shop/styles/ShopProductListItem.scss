@@ -1,0 +1,40 @@
+@import '~generic/styles/utils';
+
+.c-content-overlay .c-overlay-object {
+  background-size: contain;
+  @include lg {
+    height: 230px;
+  }
+  @include md {
+    height: 185px;
+  }
+  @include sm {
+    height: 200px;
+    background-size: 170px;
+  }
+  @include xs {
+    height: 230px;
+    background-size: 200px
+  }
+}
+
+.c-info {
+  @include sm-max {
+    text-align: center;
+  }
+  & > .c-title {
+    overflow: hidden;
+    @include md {
+      height: 60px;
+      font-size: 14px;
+    }
+    @include lg {
+      height: 45px;
+    }
+  }
+}
+.c-btn-product {
+  @include md-min {
+    padding: 7px !important;
+  }
+}

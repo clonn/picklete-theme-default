@@ -1,0 +1,25 @@
+@import '~generic/styles/utils';
+
+.nav-icon-item-wrap {
+  position: relative;
+  display: block;
+  height: 100%;
+  text-decoration: none;
+
+  & > .nav-icon-item{
+    position: relative;
+    top: 50%;
+    transform: translateY(-42px);
+    text-align: center;
+
+    & > .title {
+      margin-top: 12px;
+      text-decoration: none;
+      color: $text-color-black;
+    }
+
+    & .icon-text{
+      color: #FFF !important;
+    }
+  }
+}
