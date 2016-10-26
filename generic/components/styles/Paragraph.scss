@@ -1,0 +1,64 @@
+@import '~generic/styles/utils';
+
+.paragraph {
+  padding: 12px 12px 15px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: $text-color2;
+  word-wrap: break-word;
+
+  & h2 {
+    padding: 0px !important;
+    margin: 0px 0px 12px;
+    color: $text-color1;
+    font-size: 20px;
+
+    // & + * {
+    //   padding-left: 8px !important;
+    // }
+  }
+
+  & ul {
+    margin: 0px;
+    padding-left: 25px;
+  }
+
+  & p {
+    margin: 10px 0px;
+  }
+  & a {
+    color: $link-color1;
+    text-decoration: none;
+  }
+  & iframe {
+    margin: 0px -6px;
+    border: 1px solid $border-color2;
+  }
+
+  & > * {
+    max-width: 98% !important;
+    margin: 0px auto !important;
+  }
+
+  & * {
+    text-indent: 0px !important;
+  }
+
+  & div, & span, & p, & h1, & h3, & h4, & h5 {
+    font-family: $font-family !important;
+    font-size: 15px !important;
+    line-height: 1.8 !important;
+    margin: 0px auto !important;
+
+  }
+  & img, & table , & iframe{
+    width: 100% !important;
+    height: initial;
+    max-width: 100% !important;
+  }
+
+  & table, & thead, & tbody, & th, & tr, & td {
+    width: initial !important;
+    word-break: break-all !important;
+  }
+}

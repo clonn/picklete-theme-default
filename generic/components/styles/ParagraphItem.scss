@@ -1,0 +1,59 @@
+@import '~generic/styles/utils';
+
+.paragraph-item {
+  padding: 10px 0px 15px;
+  & > h2 {
+    margin: 0px 0px 12px;
+    color: $text-color1;
+    font-size: 20px;
+  }
+  & > .content {
+    font-size: 15px;
+    line-height: 1.5;
+    padding-left: 8px;
+    color: $text-color2;
+    word-wrap: break-word;
+
+    & p {
+      margin: 10px 0px;
+    }
+    & a {
+      color: $link-color1;
+      text-decoration: none;
+    }
+    & iframe {
+      margin: 0px -6px;
+      border: 1px solid $border-color2;
+      width: 100% !important;
+      max-width: 100% !important;
+
+    }
+
+    & > * {
+      max-width: 98% !important;
+      margin: 0px auto !important;
+    }
+
+    & * {
+      text-indent: 0px !important;
+    }
+
+    & div, & span, & p, & h1, & h2, & h3, & h4, & h5 {
+      font-family: $font-family !important;
+      font-size: 15px !important;
+      line-height: 1.8 !important;
+      margin: 0px auto !important;
+
+    }
+    & img, & table{
+      width: 100% !important;
+      max-width: 100% !important;
+      height: initial;
+    }
+
+    & table, & thead, & tbody, & th, & tr, & td {
+      width: initial !important;
+      word-break: break-all !important;
+    }
+  }
+}

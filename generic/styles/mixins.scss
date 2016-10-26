@@ -1,0 +1,65 @@
+@mixin vertical-middle {
+  & > div {
+    display: inline-block;
+    vertical-align: middle
+  }
+
+  &:before{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+  }
+}
+
+@mixin font-family {
+  font-family: $font-family;
+}
+
+@mixin remove-a-underline {
+  & a {
+    text-decoration: none !important;
+  }
+}
+
+@mixin xs {
+  @media (max-width: #{$sm-min-width - 1px}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (min-width: #{$sm-min-width}) and (max-width: #{$md-min-width - 1px}) {
+    @content;
+  }
+}
+@mixin sm-min {
+  @media (min-width: #{$sm-min-width}){
+    @content;
+  }
+}
+@mixin sm-max {
+  @media (max-width: #{$md-min-width - 1px}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (min-width: #{$md-min-width}) and (max-width: #{$lg-min-width - 1px}) {
+    @content;
+  }
+}
+@mixin md-min {
+  @media (min-width: #{$md-min-width}) {
+    @content;
+  }
+}
+@mixin md-max {
+  @media (max-width: #{$lg-min-width - 1px}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$lg-min-width}){
+    @content;
+  }
+}

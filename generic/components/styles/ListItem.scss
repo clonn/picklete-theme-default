@@ -1,0 +1,18 @@
+@import '~generic/styles/utils';
+
+.list-item {
+  @include vertical-middle;
+
+  color: #6d4226;
+  background-color: $bg-color3;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px, rgba(0, 0, 0, 0.1) 0px 1px 4px;
+  padding: 10px;
+  height: 30px;
+  border: 1px solid $border-color2;
+  border-top: none;
+
+  .list-item-wrap:first-of-type > & {
+    border-top: 1px solid $border-color2;
+  }
+
+}

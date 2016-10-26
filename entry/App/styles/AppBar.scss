@@ -1,0 +1,10 @@
+.app-bar{
+  border-bottom: 1px solid #e6eff3 !important;
+  background: #FFF !important;
+}
+
+@include md-min {
+  .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
+    margin-top: 65px;
+  }
+}
