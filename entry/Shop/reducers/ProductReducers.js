@@ -1,4 +1,4 @@
-import { FETCH_PRODUCTS_LIST_API } from 'Shop/actions/ProductActions'
+import { FETCH_LIST_API } from 'Shop/actions/ProductActions'
 
 const initialState = {
   list: {
@@ -10,20 +10,20 @@ const initialState = {
 
 export default function products(state = initialState, action) {
   switch (action.type) {
-    case FETCH_PRODUCTS_LIST_API.request:
+    case FETCH_LIST_API.request:
       return _.merge({}, state, {
         list: {
           status: 'fetching'
         }
       });
-    case FETCH_PRODUCTS_LIST_API.success:
+    case FETCH_LIST_API.success:
       return _.merge({}, state, {
         list: {
           status: 'success',
           data: action.payload.response
         }
       });
-    case FETCH_PRODUCTS_LIST_API.error:
+    case FETCH_LIST_API.error:
       return _.merge({}, state, {
         list: {
           status: 'error',

@@ -3,15 +3,13 @@ import { connect } from 'react-redux'
 
 import ShopProductListItem from 'Shop/components/ShopProductListItem'
 
-import { fetchProductListAPI } from 'Shop/actions/ProductActions'
+import { fetchListAPI } from 'Shop/actions/ProductActions'
 
 class ShopProductListContainer extends Component {
   componentDidMount() {
-    if (this.props.products.list.status != 'success') {
-      this.props.dispatch(fetchProductListAPI());
-    }
+    this.props.dispatch(fetchListAPI());
   }
-  
+
   render() {
     let data = this.props.products.list.data;
     const {dptID, subDptID} = this.props.params;
