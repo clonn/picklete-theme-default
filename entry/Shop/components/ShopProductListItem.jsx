@@ -20,8 +20,8 @@ export default class ShopProductListItem extends Component {
           </div>
           <div className="c-info">
             <p className="c-title c-font-16 c-font-slim">{this.props.name}</p>
-            <p className="c-price c-font-14 c-font-slim">${this.props.price.origin} &nbsp;
-              <span className="c-font-14 c-font-line-through c-font-red">${this.props.price.discount}</span>
+            <p className="c-price c-font-14 c-font-slim">${this.props.price.discount} &nbsp;
+              <span className="c-font-14 c-font-line-through c-font-red">${this.props.price.origin}</span>
             </p>
           </div>
           <div className="btn-group btn-group-justified" role="group">
