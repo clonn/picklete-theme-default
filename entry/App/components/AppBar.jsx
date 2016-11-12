@@ -50,7 +50,7 @@ export default class AppBar extends Component {
                             </li>
                             {dpt.subDpts.map((subDpt, index2) => (
                               <li className={`${(subDpt.active)? 'c-active' : ''}`} key={index2}>
-                                <Link to={`/shop/${dpt.id}/${subDpt.id}`}>{subDpt.name}</Link>
+                                <Link to={`/shop/department/${dpt.id}/${subDpt.id}`}>{subDpt.name}</Link>
                               </li>
                             ))}
                           </ul>

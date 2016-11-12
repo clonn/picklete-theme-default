@@ -23,7 +23,9 @@ export default class Shop extends Component {
         </div>
         <div className="container">
           <ShopDptListContainer activeDptID={this.props.params.dptID} activeSubDptID={this.props.params.subDptID}/>
-          {this.props.children}
+          <div className="c-layout-sidebar-content">
+            {this.props.children}
+          </div>
         </div>
       </div>
 
