@@ -12,8 +12,11 @@ export default (
     <IndexRoute name="home"/>
     <Route path="shop" component={Shop}>
       <Route path=":dptID(/:subDptID)" component={ShopProductListContainer}/>
+
+
     </Route>
+
   </Route>
 );
 
-      // <Route path=":bigType/:smallType/:id" component={ShopListContainer}/>
+      // <Route path=":dptID/:subDptID/:productId" component={ShopProductListContainer}/>

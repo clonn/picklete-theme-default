@@ -5,7 +5,7 @@ import AppBar from 'App/components/AppBar'
 
 import 'vendor/vendor.scss'
 import 'App/styles/App.scss'
-import { fetchDptsAPI } from 'Shop/actions/DptActions'
+import { fetchAPI } from 'Shop/actions/DptActions'
 
 import handleDptData from 'Shop/modules/handleDptData'
 
@@ -15,7 +15,7 @@ class App extends Component {
     this.fetchAPI();
   }
   fetchAPI() {
-    if (this.props.dpts.status != 'success') this.props.dispatch(fetchDptsAPI());
+    this.props.dispatch(fetchAPI());
   }
 
   render() {
