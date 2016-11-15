@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import ShopDptList from 'Shop/components/ShopDptList'
-import PageLoader from 'Page/components/PageLoader'
 
 import handleDptData from 'Shop/modules/handleDptData'
 class ShopDptListContainer extends Component {
