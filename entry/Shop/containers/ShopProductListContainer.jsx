@@ -21,18 +21,15 @@ class ShopProductListContainer extends Component {
     }
 
     return (
-      <div className="c-layout-sidebar-content ">
-        <div className="c-bs-grid-small-space">
-          <div className="row">
-            {data.map((product, index) => (
-              <ShopProductListItem {...product} key={index}/>
-            ))}
-          </div>
-
+      <div className="c-bs-grid-small-space">
+        <div className="row">
+          {data.map((product, index) => (
+            <ShopProductListItem {...product} key={index}/>
+          ))}
         </div>
       </div>
     )
   }
 }
 
-export default connect(state => ({products: state.products}))(ShopProductListContainer);
+export default connect(state => ({products: {list: state.products.list}}))(ShopProductListContainer);

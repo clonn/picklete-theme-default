@@ -58,8 +58,8 @@ module.exports = {
     }]
   },
 
-  // devtool: 'cheap-module-eval-source-map',
-  devtool: 'eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'eval-source-map',
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
