@@ -13,7 +13,7 @@ export default class ShopProductListItem extends Component {
 
             <div className="c-overlay-wrapper">
               <div className="c-overlay-content">
-                <a href="shop-product-details-2.html" className="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">查看商品</a>
+                <Link to={`/shop/product/${this.props.id}`} className="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">查看商品</Link>
               </div>
             </div>
             <div className="c-bg-img-center c-overlay-object" data-height="height" style={{backgroundImage: `url(${this.props.photo})`}}></div>
@@ -26,7 +26,7 @@ export default class ShopProductListItem extends Component {
           </div>
           <div className="btn-group btn-group-justified" role="group">
             <div className="btn-group c-border-top" role="group">
-              <a href="shop-product-wishlist.html" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">查看詳細</a>
+              <Link to={`/shop/product/${this.props.id}`} className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">查看詳細</Link>
             </div>
             <div className="btn-group c-border-left c-border-top" role="group">
               <a href="shop-cart.html" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">加入購物車</a>

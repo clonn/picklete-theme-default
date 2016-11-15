@@ -1,0 +1,33 @@
+@import '~generic/styles/utils';
+
+.c-shop-product-details-2.c-opt-1 .c-product-gallery-content {
+  height: 425px;
+  margin-bottom: 20px;
+
+  @include md {
+    height: 335px;
+  }
+
+  @include sm-max {
+    height: initial !important;
+    max-height: 400px;
+    max-width: 400px;
+    margin: 0px auto 30px;
+
+  }
+
+  & img {
+    border-radius: 8px;
+  }
+}
+
+.c-shop-product-details-2 .c-product-gallery > .c-product-gallery-thumbnail {
+  @include sm-max {
+    max-width: 600px;
+    margin: 0px auto;
+  }
+}
+
+.c-shop-product-details-2 .c-product-gallery > .c-product-gallery-thumbnail > .c-product-thumb img {
+  border-radius: 8px;
+}

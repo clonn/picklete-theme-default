@@ -1,0 +1,29 @@
+@import '~generic/styles/utils';
+
+.c-shop-product-tab-1 .nav > li > a:hover, .c-shop-product-tab-1 .nav > li > a:focus {
+  cursor: pointer;
+}
+
+.c-content-box.c-size-md {
+  @include sm-max {
+    margin-top: 30px;
+
+  }
+}
+
+.tab-content {
+  & > .tab {
+    transition: opacity 0.7s ease-out;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    &.active {
+      opacity: 1;
+    height: auto;
+    }
+    & * {
+      max-width: 100%;
+      height: initial !important;
+    }
+  }
+}

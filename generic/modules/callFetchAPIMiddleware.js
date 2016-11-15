@@ -38,6 +38,9 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
       let response;
       try {
         response = await callAPI();
+        if (response.status != 200) {
+          throw new Error(`${response.status (response.statusText)}`);
+        }
         response = await handleResponse(response);
         dispatch(Object.assign({}, {
           type: successType,
