@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import ShopDptList from 'Shop/components/ShopDptList'
 import PageLoader from 'Page/components/PageLoader'
-import PageLoadingError from 'Page/components/PageLoadingError'
 
 import handleDptData from 'Shop/modules/handleDptData'
 class ShopDptListContainer extends Component {
