@@ -14,14 +14,13 @@ export default class ShopProductDetailQuantity extends Component {
   }
 
   handleButtonClickQuantity = (sign) => {
-    if (sign == -1 && this.state.quantity == 0) {
+    if (sign == -1 && this.state.quantity == 1) {
       return;
     }
     this.setState({
       quantity: this.state.quantity + sign
     });
     (this.props.onChange.bind(null, this.state.quantity + sign))();
-
   }
 
   render() {
