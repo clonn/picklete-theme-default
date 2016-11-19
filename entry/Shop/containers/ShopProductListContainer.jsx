@@ -24,7 +24,7 @@ class ShopProductListContainer extends Component {
       <div className="c-bs-grid-small-space">
         <div className="row">
           {data.map((product, index) => (
-            <ShopProductListItem {...product} key={index}/>
+            <ShopProductListItem {...product} key={index} dptID={dptID} subDptID={subDptID}/>
           ))}
         </div>
       </div>

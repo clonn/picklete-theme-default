@@ -8,6 +8,7 @@ import { fetchDetailAPI } from 'Shop/actions/ProductActions'
 class ShopProductDetailContainer extends Component {
   componentDidMount() {
     this.props.dispatch(fetchDetailAPI(this.props.params.productID));
+    console.log(this.props.location.query);
   }
 
   render() {
