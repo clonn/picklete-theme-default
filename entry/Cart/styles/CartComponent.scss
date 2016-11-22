@@ -1,0 +1,7 @@
+@import '~generic/styles/utils';
+
+.description {
+  @include md-min {
+    display: none;
+  }
+}

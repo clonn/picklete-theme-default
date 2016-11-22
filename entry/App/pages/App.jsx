@@ -26,7 +26,7 @@ class App extends Component {
     });
     return (
       <div className="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
-        <AppBar dpts={depts}/>
+        <AppBar dpts={depts} cartItemsNumber={this.props.cart.data.length}/>
         <div className="page-container c-layout-page">
           {this.props.children}
         </div>
@@ -36,5 +36,6 @@ class App extends Component {
 }
 
 export default connect(state => ({
-  dpts: state.dpts
+  dpts: state.dpts,
+  cart: state.cart
 }))(App);

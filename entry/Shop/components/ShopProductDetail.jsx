@@ -17,6 +17,16 @@ export default class ShopProductDetail extends Component {
     });
   }
 
+  getCartItemData() {
+    return {
+      id: this.props.id,
+      name: this.props.name,
+      photo: this.props.photos[0],
+      quantity: this.state.quantity,
+      price: this.props.price.discount
+    }
+  }
+
   render() {
     return (
       <div>
@@ -34,8 +44,9 @@ export default class ShopProductDetail extends Component {
                 <div className="c-product-price">${this.props.price.discount}元</div>
                 <InnerHtml className="c-product-short-desc" html={this.props.description}/>
                 <div className="c-product-add-cart c-margin-t-20">
+                  <div>購買數量：</div>
                   <ShopProductDetailQuantity onChange={this.handleChangeQuantity}/>
-                  <button className="btn c-btn btn-lg c-font-bold c-font-white c-theme-btn c-btn-square c-font-uppercase">加入購物車</button>
+                  <button onClick={this.props.dispatchAddItem.bind(null, this.getCartItemData())} className="btn c-btn btn-lg c-font-bold c-font-white c-theme-btn c-btn-square c-font-uppercase">加入購物車</button>
                 </div>
               </div>
             </div>

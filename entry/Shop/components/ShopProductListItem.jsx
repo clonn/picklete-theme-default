@@ -1,9 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import queryString from 'queryString'
+import queryString from 'query-string'
 import 'Shop/styles/ShopProductListItem.scss'
 
 export default class ShopProductListItem extends Component {
+  getCartItemData() {
+    return {
+      id: this.props.id,
+      name: this.props.name,
+      photo: this.props.photo,
+      quantity: 1,
+      price: this.props.price.discount
+    }
+  }
 
   render() {
     const dptQuery = queryString.stringify({
@@ -14,7 +23,9 @@ export default class ShopProductListItem extends Component {
       <div className="col-md-3 col-sm-6 c-margin-b-20">
         <div className="c-content-product-2 c-bg-white c-border">
           <div className="c-content-overlay">
-            {(this.props.isHot)? <div className="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Hot</div> : null }
+            {(this.props.isHot) && (
+              <div className="c-label c-bg-red c-font-uppercase c-font-white c-font-13 c-font-bold">Hot</div>
+            )}
 
             <div className="c-overlay-wrapper">
               <div className="c-overlay-content">
@@ -34,7 +45,7 @@ export default class ShopProductListItem extends Component {
               <Link to={`/shop/product/${this.props.id}?${dptQuery}`} className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">查看詳細</Link>
             </div>
             <div className="btn-group c-border-left c-border-top" role="group">
-              <a href="shop-cart.html" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">加入購物車</a>
+              <a onClick={this.props.dispatchAddCartItem.bind(null, this.getCartItemData())} href="javascript:;" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">加入購物車</a>
             </div>
           </div>
         </div>
