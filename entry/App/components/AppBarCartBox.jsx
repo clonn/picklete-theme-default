@@ -27,7 +27,7 @@ export default class AppBarCartBox extends Component {
         </ul>
         <div className="c-cart-menu-footer">
           <Link to="/cart" onClick={this.props.toggleCartBox} className="btn btn-md c-btn c-btn-square c-btn-grey-3 c-font-white c-font-bold c-center c-font-uppercase">查看購物車</Link>
-          <a href="shop-checkout.html" className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</a>
+          <Link to="/checkout/information" onClick={this.props.toggleCartBox} className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</Link>
         </div>
       </div>
     )

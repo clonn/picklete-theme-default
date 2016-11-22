@@ -91,7 +91,7 @@ export default class CartComponent extends Component {
         </div>
         <div className="c-cart-buttons">
           <Link to="/shop/department/1" className="btn c-btn btn-lg c-btn-red c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-l">繼續購物</Link>
-          <a href="#" className="btn c-btn btn-lg c-theme-btn c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-r">結帳</a>
+          <Link to="/checkout/information" className="btn c-btn btn-lg c-theme-btn c-btn-square c-font-white c-font-bold c-font-uppercase c-cart-float-r">結帳</Link>
         </div>
       </div>
     )

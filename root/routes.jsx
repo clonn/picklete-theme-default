@@ -5,12 +5,14 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 import App from 'App/pages/App'
 import Shop from 'Shop/pages/Shop'
 import Cart from 'Cart/pages/Cart'
+import Checkout from 'Checkout/pages/Checkout'
 
 import ShopProductListContainer from 'Shop/containers/ShopProductListContainer'
 import ShopProductDetailContainer from 'Shop/containers/ShopProductDetailContainer'
 
 import CartContainer from 'Cart/containers/CartContainer'
-
+import CheckoutInfoContainer from 'Checkout/containers/CheckoutInfoContainer'
+import CheckoutCompleteContainer from 'Checkout/containers/CheckoutCompleteContainer'
 
 export default (
   <Route path="/" component={App}>
@@ -21,6 +23,11 @@ export default (
     </Route>
     <Route path="cart" component={Cart}>
       <IndexRoute component={CartContainer}/>
+    </Route>
+
+    <Route path="checkout" component={Checkout}>
+      <Route path="information" component={CheckoutInfoContainer}/>
+      <Route path="complete" component={CheckoutCompleteContainer}/>
     </Route>
 
   </Route>

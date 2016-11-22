@@ -51,7 +51,7 @@ export default class AppBar extends Component {
                     <span className="c-line"></span>
                     <span className="c-line"></span>
                   </button>
-                  <AppBarCartButton mobile number={5} onClick={this.handleCartBoxToggle}/>
+                  <AppBarCartButton mobile number={this.props.cartItemsNumber} onClick={this.handleCartBoxToggle}/>
                 </div>
                 <nav className={navClassName}>
                   <ul className="nav navbar-nav c-theme-nav">
@@ -66,7 +66,7 @@ export default class AppBar extends Component {
                     </AppBarNav>
                     <AppBarCartButton number={this.props.cartItemsNumber} onClick={this.handleCartBoxToggle}/>
                     <li>
-                      <a href="javascript:;" data-toggle="modal" data-target="#login-form" className="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
+                      <a href="javascript:;" className="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
                         登入
                       </a>
                     </li>
