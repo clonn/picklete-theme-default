@@ -102,7 +102,7 @@ export default class CheckoutInfo extends Component {
                 <li className="row">
                   <div className="form-group col-md-12" role="group">
                     <Link to="/checkout/complete" type="submit" className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">送出訂單</Link>
-                    <button type="submit" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">取消</button>
+                    <Link to="/cart" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">取消</Link>
                   </div>
                 </li>
               </ul>
