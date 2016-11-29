@@ -6,7 +6,7 @@ const initialState = {
   data: {}
 };
 
-export default function modals(state = initialState, {type, payload}) {
+export default function member(state = initialState, {type, payload}) {
   switch (type) {
     case LOGIN.success:
       return {

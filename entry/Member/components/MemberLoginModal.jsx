@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { ModalContainer, ModalDialog } from 'react-modal-dialog'
 import { login } from 'Member/actions/MemberAction'
-import { changeActive } from 'App/actions/ModalActions'
+import { changeActive as changeModalActive} from 'App/actions/ModalActions'
 
 import 'Member/styles/MemberLoginModal.scss'
 
@@ -13,26 +13,20 @@ class MemberLoginModal extends Component {
     password: 'admin'
   }
 
-  closeModal = () => {
-    this.props.dispatch(changeActive('login', false));
-  }
+  closeModal = () => this.props.dispatch(changeModalActive('login', false))
 
   handleEmailChange = (event) => this.setState({email: event.target.value})
   handlePasswordChange = (event) => this.setState({password: event.target.value})
 
-  handleLogin = () => {
-
-    this.props.dispatch(login({
-      email: this.state.email,
-      password: this.state.password,
-    }));
-    this.closeModal();
-  }
+  handleLogin = () => this.props.dispatch(login({
+    email: this.state.email,
+    password: this.state.password,
+  }))
 
   render() {
     return (
       <div>
-        {this.props.modals.login && (
+        {this.props.modals.login && !this.props.member.status && (
           <ModalContainer onClose={this.closeModal}>
             <ModalDialog onClose={this.closeModal} className="member-login-modal">
               <h1>登入會員</h1>
