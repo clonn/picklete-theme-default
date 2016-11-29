@@ -30,7 +30,8 @@ export function login({email, password}) {
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();
-      if (httpResponse.status == 400 && body == 'Error.Passport.Username.NotFound') {
+      const errorMsgs = ['Error.Passport.Username.NotFound', 'Error.Passport.Email.NotFound', 'Error.Passport.Password.Wrong'];
+      if (httpResponse.status == 400 && errorMsgs.includes(body)) {
         dispatch(addNotification({
           title: '登入失敗',
           message: '請確認您輸入的資訊是否正確',

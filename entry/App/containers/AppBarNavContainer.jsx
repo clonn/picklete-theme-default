@@ -9,7 +9,7 @@ import handleDptData from 'Shop/modules/handleDptData'
 
 class AppBarNavContainer extends Component {
   static contextTypes = {
-    params: PropTypes.object.isRequired
+    params: PropTypes.object.isRequired,
   }
   render() {
     const dpts = handleDptData({

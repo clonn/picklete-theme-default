@@ -16,10 +16,7 @@ class AppNotificationContainer extends Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.addNotification}>test</button>
-        <NotificationSystem ref={this.setRef} />
-      </div>
+      <NotificationSystem ref={this.setRef} />
     )
   }
 }

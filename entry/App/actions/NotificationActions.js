@@ -2,7 +2,16 @@ export const ADD = 'notifications.ADD';
 export const ACTIVATE = 'notifications.ACTIVATE';
 export const DISSMISS = 'notifications.DISSMISS';
 
-export function addNotification({ type = 'success', position = 'br', title = '', message, uid, autoDismiss = 5 }) {
+export function addNotification(options) {
+  const {
+    type = 'success',
+    position = 'br',
+    title = '',
+    message,
+    uid, 
+    autoDismiss = 5
+  } = options;
+
   return {
     type: ADD,
     payload: {

@@ -20,6 +20,14 @@ class MemberLoginModal extends Component {
   handlePasswordChange = (event) => this.setState({password: event.target.value})
 
   handleLogin = () => {
+    if (!this.state.email || !this.state.password) {
+      this.props.dispatch(addNotification({
+        title: '登入失敗',
+        message: '請填寫會員 Email 與密碼',
+        type: 'error'
+      }));
+      return;
+    }
     this.props.dispatch(login({
       email: this.state.email,
       password: this.state.password,
