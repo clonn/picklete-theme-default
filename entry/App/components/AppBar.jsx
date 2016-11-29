@@ -9,7 +9,7 @@ import AppBarCartButton from 'App/components/AppBarCartButton'
 import AppBarCartBoxContainer from 'App/containers/AppBarCartBoxContainer'
 import AppBarLoginButton from 'App/containers/AppBarLoginButton'
 
-import { changeActive } from 'App/actions/ModalActions'
+import { changeModalActive } from 'App/actions/ModalActions'
 
 export default class AppBar extends Component {
   static defaultProps = {

@@ -6,9 +6,10 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
       const {
         actionType,
         callAPI,
-        shouldCallAPI = () => true,
+        shouldCallAPI = (state) => true,
         handleResponse = (response) => response.json(),
-        afterSuccess = () => {},
+        afterSuccess = ({dispatch, state, response}) => {},
+        afterError = ({dispatch, state, response}) => {},
         payload = {}
       } = action;
 
@@ -50,7 +51,7 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
           }
         }));
         try {
-          afterSuccess({dispatch, state: getState(), response});
+          await afterSuccess({dispatch, state: getState(), response});
         } catch (error) {
           console.error(error);
         }
@@ -59,9 +60,14 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
           type: errorType,
           payload: {
             ...payload,
-            error: handleFetchError({response, error, actionType: errorType})
+            error: handleFetchError({httpResponse: response, error, actionType: errorType})
           }
         }));
+        try {
+          await afterError({dispatch, state: getState(), httpResponse: response});
+        } catch (error) {
+          console.error(error);
+        }
       }
     };
   };

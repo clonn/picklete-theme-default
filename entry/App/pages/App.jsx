@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 import AppBar from 'App/components/AppBar'
 import AppModalContainer from 'App/containers/AppModalContainer'
+import AppNotificationContainer from 'App/containers/AppNotificationContainer'
 
 import 'vendor/vendor.scss'
 import 'App/styles/App.scss'
@@ -36,6 +37,7 @@ class App extends Component {
           </div>
         </div>
         <AppModalContainer/>
+        <AppNotificationContainer/>
       </div>
 
     )

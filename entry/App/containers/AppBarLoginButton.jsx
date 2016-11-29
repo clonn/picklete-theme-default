@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { changeActive } from 'App/actions/ModalActions'
+import { changeModalActive } from 'App/actions/ModalActions'
 
 class AppBarLoginButton extends Component {
   openLoginModal = () => {
-    this.props.dispatch(changeActive('login', true));
+    this.props.dispatch(changeModalActive('login', true));
   }
 
   render() {

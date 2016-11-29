@@ -1,4 +1,5 @@
-import { changeActive as changeModalActive} from 'App/actions/ModalActions'
+import { changeModalActive as changeModalActive} from 'App/actions/ModalActions'
+import { addNotification } from 'App/actions/NotificationActions'
 
 export const LOGIN = {
   request: 'member.LOGIN.request',
@@ -26,6 +27,22 @@ export function login({email, password}) {
     afterSuccess: ({dispatch, response}) => {
       dispatch(fetchMemberData({token: response.token}));
       dispatch(changeModalActive('login', false));
+    },
+    afterError: async({dispatch, httpResponse}) => {
+      const body = await httpResponse.text();
+      if (httpResponse.status == 400 && body == 'Error.Passport.Username.NotFound') {
+        dispatch(addNotification({
+          title: '登入失敗',
+          message: '請確認您輸入的資訊是否正確',
+          type: 'error'
+        }));
+      } else {
+        dispatch(addNotification({
+          title: '連線失敗',
+          message: '請確認您的網路連線正常',
+          type: 'error'
+        }));
+      }
     }
   };
 }

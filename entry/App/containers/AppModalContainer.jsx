@@ -13,6 +13,4 @@ class AppModalContainer extends Component {
   }
 }
 
-export default connect(state => ({
-  modals: state.modals
-}))(AppModalContainer);
+export default connect()(AppModalContainer);
