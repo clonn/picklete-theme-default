@@ -5,7 +5,7 @@ import AppBar from 'App/components/AppBar'
 import { loadLocalStorage, removeItem as removeCartItem } from 'Cart/actions/CartActions'
 import AppBarCartBox from 'App/components/AppBarCartBox'
 
-class AppBarCartContainer extends Component {
+class AppBarCartBoxContainer extends Component {
   componentDidMount() {
     this.props.dispatch(loadLocalStorage());
   }
@@ -27,4 +27,4 @@ class AppBarCartContainer extends Component {
 
 export default connect(state => ({
   cart: state.cart
-}))(AppBarCartContainer);
+}))(AppBarCartBoxContainer);

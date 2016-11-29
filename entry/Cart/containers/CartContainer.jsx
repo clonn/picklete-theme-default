@@ -6,7 +6,7 @@ import AppBar from 'App/components/AppBar'
 import CartComponent from 'Cart/components/CartComponent'
 import { removeItem as removeCartItem, changeItemQuantity as changeCartItemQuantity } from 'Cart/actions/CartActions'
 
-class AppBarCartContainer extends Component {
+class CartContainer extends Component {
   dispatchRemoveCartItem = (index) => {
     this.props.dispatch(removeCartItem(index));
   }
@@ -19,7 +19,7 @@ class AppBarCartContainer extends Component {
     return (
       <CartComponent
         totalPrice={this.props.cart.totalPrice}
-        data={this.props.cart.data} 
+        data={this.props.cart.data}
         dispatchRemoveCartItem={this.dispatchRemoveCartItem}
         dispatchChangeCartItemQuantity={this.dispatchChangeCartItemQuantity}/>
     )
@@ -28,4 +28,4 @@ class AppBarCartContainer extends Component {
 
 export default connect(state => ({
   cart: state.cart
-}))(AppBarCartContainer);
+}))(CartContainer);

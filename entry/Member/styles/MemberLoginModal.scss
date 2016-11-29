@@ -1,0 +1,10 @@
+.member-login-modal {
+  width: 80% !important;
+  max-width: 450px;
+  & label {
+    margin-top: 10px;
+  }
+  & button[type="submit"] {
+    margin-top: 15px;
+  }
+}

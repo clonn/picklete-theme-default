@@ -7,4 +7,7 @@
   .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
     margin-top: 65px;
   }
+  .c-layout-header.app-bar {
+    z-index: 3 !important;
+  }
 }
