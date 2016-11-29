@@ -64,9 +64,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
 
     new webpack.ProvidePlugin({
-      _: 'lodash',
-      // route: 'generic/modules/routeHelper',
-      // apiRoute: 'generic/modules/apiRouteHelper',
+      _: 'lodash'
     })
   ]
 };

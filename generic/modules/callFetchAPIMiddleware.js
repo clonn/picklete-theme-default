@@ -6,13 +6,14 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
       const {
         actionType,
         callAPI,
-        shouldCallAPI = () => true,
-        handleResponse = (response) => response.json(),
-        afterSuccess = () => {},
+        shouldCallAPI = (state) => true,
+        handleResponse = (httpResponse) => httpResponse.json(),
+        afterSuccess = ({dispatch, state, response}) => {},
+        afterError = ({dispatch, state, httpResponse}) => {},
         payload = {}
       } = action;
 
-      if (!callAPI) {
+      if (!callAPI || !actionType) {
         return next(action);
       }
 
@@ -35,13 +36,13 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
         payload
       }));
 
-      let response;
+      let httpResponse, response;
       try {
-        response = await callAPI();
-        if (response.status != 200) {
-          throw new Error(`${response.status (response.statusText)}`);
+        httpResponse = await callAPI();
+        if (httpResponse.status != 200) {
+          throw new Error(`${httpResponse.status (httpResponse.statusText)}`);
         }
-        response = await handleResponse(response);
+        response = await handleResponse(httpResponse);
         dispatch(Object.assign({}, {
           type: successType,
           payload: {
@@ -50,7 +51,7 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
           }
         }));
         try {
-          afterSuccess({dispatch, state: getState(), response});
+          await afterSuccess({dispatch, state: getState(), response});
         } catch (error) {
           console.error(error);
         }
@@ -59,9 +60,14 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
           type: errorType,
           payload: {
             ...payload,
-            error: handleFetchError({response, error, actionType: errorType})
+            error: handleFetchError({httpResponse, error, actionType: errorType})
           }
         }));
+        try {
+          await afterError({dispatch, state: getState(), httpResponse});
+        } catch (error) {
+          console.error(error);
+        }
       }
     };
   };

@@ -1,10 +1,10 @@
-export default function handleFetchError(data) {
+export default function handleFetchError({httpResponse, error, actionType}) {
   let errorMessage;
-  if (data.response) {
-    errorMessage = (data.response.status == 200)? data.error.toString() : `${data.response.status} (${data.response.statusText})`;
+  if (httpResponse) {
+    errorMessage = (httpResponse.status == 200)? error.toString() : `${httpResponse.status} (${httpResponse.statusText})`;
   } else {
-    errorMessage = data.error.toString();
+    errorMessage = error.toString();
   }
-  console.error(`action "${data.actionType}" => ${errorMessage}`);
+  console.error(`action "${actionType}" => ${errorMessage}`);
   return errorMessage;
 }

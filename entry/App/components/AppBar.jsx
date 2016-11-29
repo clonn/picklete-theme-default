@@ -3,12 +3,13 @@ import { Link } from 'react-router'
 import classNames from 'classnames'
 
 import AppBarLogo from 'App/components/AppBarLogo'
-import AppBarNav from 'App/components/AppBarNav'
-import AppBarNavGroup from 'App/components/AppBarNavGroup'
-import AppBarNavGroupItem from 'App/components/AppBarNavGroupItem'
+import AppBarNavContainer from 'App/containers/AppBarNavContainer'
 
 import AppBarCartButton from 'App/components/AppBarCartButton'
 import AppBarCartBoxContainer from 'App/containers/AppBarCartBoxContainer'
+import AppBarLoginButton from 'App/containers/AppBarLoginButton'
+
+import { changeModalActive } from 'App/actions/ModalActions'
 
 export default class AppBar extends Component {
   static defaultProps = {
@@ -55,21 +56,9 @@ export default class AppBar extends Component {
                 </div>
                 <nav className={navClassName}>
                   <ul className="nav navbar-nav c-theme-nav">
-                    <AppBarNav title="商品訂購">
-                      {this.props.dpts.map((dpt, index) => (
-                        <AppBarNavGroup title={dpt.name} key={index}>
-                          {dpt.subDpts.map((subDpt, index2) => (
-                            <AppBarNavGroupItem title={subDpt.name} url={`/shop/department/${dpt.id}/${subDpt.id}`} active={subDpt.active} key={index2}/>
-                          ))}
-                        </AppBarNavGroup>
-                      ))}
-                    </AppBarNav>
+                    <AppBarNavContainer/>
                     <AppBarCartButton number={this.props.cartItemsNumber} onClick={this.handleCartBoxToggle}/>
-                    <li>
-                      <a href="javascript:;" className="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
-                        登入
-                      </a>
-                    </li>
+                    <AppBarLoginButton/>
                   </ul>
                 </nav>
               </div>
