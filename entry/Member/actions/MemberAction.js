@@ -7,12 +7,7 @@ export const LOGIN = createFetchActionType('member', 'LOGIN');
 export const LOGOUT = createFetchActionType('member', 'LOGOUT');
 export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_DATA');
 export const AUTO_LOGIN = 'member.AUTO_LOGIN';
-
-export const REGISTER_MEMBER_DATA = {
-  request: 'member.REGISTER_MEMBER_DATA.request',
-  success: 'member.REGISTER_MEMBER_DATA.success',
-  error: 'member.REGISTER_MEMBER_DATA.error',
-};
+export const REGISTER_MEMBER_DATA = createFetchActionType('member', 'REGISTER_MEMBER_DATA');
 
 export function login({email, password}) {
   return {
