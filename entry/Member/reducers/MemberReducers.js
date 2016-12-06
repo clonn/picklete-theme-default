@@ -1,4 +1,4 @@
-import { LOGIN, FETCH_MEMBER_DATA, AUTO_LOGIN } from 'Member/actions/MemberAction'
+import { LOGIN, FETCH_MEMBER_DATA, AUTO_LOGIN, REGISTER_MEMBER_DATA } from 'Member/actions/MemberAction'
 
 const initialState = {
   status: null,
@@ -14,7 +14,7 @@ export default function member(state = initialState, {type, payload}) {
         ...state,
         status: 'success',
       };
-    case FETCH_MEMBER_DATA.success:
+    case FETCH_MEMBER_DATA.success: case REGISTER_MEMBER_DATA.success:
       return {
         ...state,
         data: payload.response
