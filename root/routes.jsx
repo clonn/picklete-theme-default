@@ -31,7 +31,7 @@ export default (
       <Route path="information" component={CheckoutInfoContainer}/>
       <Route path="complete" component={CheckoutCompleteContainer}/>
     </Route>
-    <Route path="memberInfo" compoent={MemberInfo}>
+    <Route path="member" compoent={MemberInfo}>
       <Route path="register" component={MemberRegister}/>
     </Route>
 
