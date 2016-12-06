@@ -2,6 +2,7 @@ import basicFormSubmit from 'generic/modules/basicFormSubmit'
 
 import createFetchActionType from 'generic/modules/createFetchActionType'
 import { addNotification } from 'App/actions/NotificationActions'
+import { cleanCart } from 'Cart/actions/CartActions'
 
 export const CHECKOUT = createFetchActionType('order', 'CHECKOUT');
 
@@ -16,6 +17,7 @@ export function checkout(data) {
       }
     }),
     afterSuccess: ({dispatch, response}) => {
+      dispatch(cleanCart());
       basicFormSubmit({
         method: 'POST',
         action: response.AioCheckOut,

@@ -1,4 +1,4 @@
-import { LOAD_LOCAL_STORAGE, ADD_ITEM, REMOVE_ITEM, CHANGE_ITEM_QTY } from 'Cart/actions/CartActions'
+import { LOAD_LOCAL_STORAGE, ADD_ITEM, REMOVE_ITEM, CHANGE_ITEM_QTY, CLEAN } from 'Cart/actions/CartActions'
 
 const initialState = {
   totalPrice: 0,
@@ -32,6 +32,11 @@ export default function cart(state = initialState, {type, payload}) {
         totalPrice: payload.totalPrice,
         data: newData
       };
+    case CLEAN:
+      return {
+        totalPrice: 0,
+        data: []
+      }
     default:
       return state;
   }
