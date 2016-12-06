@@ -1,0 +1,11 @@
+@import '~generic/styles/utils';
+
+.address-options {
+  @include md-min {
+    margin-top: 34px;
+  }
+}
+
+textarea.buyer-remark {
+  resize: none;
+}
