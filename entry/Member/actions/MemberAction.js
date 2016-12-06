@@ -1,17 +1,12 @@
+import createFetchActionType from 'generic/modules/createFetchActionType'
+
 import { changeModalActive as changeModalActive} from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
 
-export const LOGIN = {
-  request: 'member.LOGIN.request',
-  success: 'member.LOGIN.success',
-  error: 'member.LOGIN.error',
-};
-
-export const FETCH_MEMBER_DATA = {
-  request: 'member.FETCH_MEMBER_DATA.request',
-  success: 'member.FETCH_MEMBER_DATA.success',
-  error: 'member.FETCH_MEMBER_DATA.error',
-};
+export const LOGIN = createFetchActionType('member', 'LOGIN');
+export const LOGOUT = createFetchActionType('member', 'LOGOUT');
+export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_DATA');
+export const AUTO_LOGIN = 'member.AUTO_LOGIN';
 
 export function login({email, password}) {
   return {
@@ -25,7 +20,8 @@ export function login({email, password}) {
       })
     }),
     afterSuccess: ({dispatch, response}) => {
-      dispatch(fetchMemberData({token: response.token}));
+      localStorage.token = response.token;
+      dispatch(fetchMemberData());
       dispatch(changeModalActive('login', false));
     },
     afterError: async({dispatch, httpResponse}) => {
@@ -48,13 +44,34 @@ export function login({email, password}) {
   };
 }
 
-export function fetchMemberData({token}) {
+export function autoLogin() {
+  return {
+    type: AUTO_LOGIN
+  }
+}
+
+export function fetchMemberData() {
   return {
     actionType: [FETCH_MEMBER_DATA.request, FETCH_MEMBER_DATA.success, FETCH_MEMBER_DATA.error],
+    shouldCallAPI: () => Boolean(localStorage.token),
     callAPI: () => fetch('/api/me', {
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${localStorage.token}`
       }
     })
+  }
+}
+
+export function logout() {
+  localStorage.removeItem('token');
+  return {
+    actionType: [LOGOUT.request, LOGOUT.success, LOGOUT.error],
+    callAPI: () => fetch('/api/logout'),
+    afterSuccess: ({dispatch, response}) => {
+      dispatch(addNotification({
+        title: '登出成功',
+        type: 'success'
+      }));
+    }
   }
 }
