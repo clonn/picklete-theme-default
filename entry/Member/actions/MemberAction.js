@@ -1,6 +1,6 @@
 import createFetchActionType from 'generic/modules/createFetchActionType'
 
-import { changeModalActive as changeModalActive} from 'App/actions/ModalActions'
+import { changeModalActive } from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
 
 export const LOGIN = createFetchActionType('member', 'LOGIN');

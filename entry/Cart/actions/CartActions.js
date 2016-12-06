@@ -3,6 +3,7 @@ export const LOAD_LOCAL_STORAGE = 'cart.LOAD_LOCAL_STORAGE';
 export const ADD_ITEM = 'cart.ADD_ITEM';
 export const REMOVE_ITEM = 'cart.REMOVE_ITEM';
 export const CHANGE_ITEM_QTY = 'cart.CHANGE_ITEM_QTY';
+export const CLEAN = 'cart.CLEAN';
 
 export function loadLocalStorage() {
   if (!localStorage.cart) {
@@ -56,4 +57,14 @@ export function changeItemQuantity(index, quantity) {
     type: CHANGE_ITEM_QTY,
     payload: {index, quantity, totalPrice: cart.totalPrice}
   }
+}
+
+export function cleanCart() {
+  const cart = JSON.parse(localStorage.cart);
+
+  localStorage.cart = JSON.stringify({
+    totalPrice: 0,
+    data: []
+  });
+  return { type: CLEAN }
 }
