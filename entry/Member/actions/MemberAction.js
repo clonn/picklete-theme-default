@@ -89,7 +89,6 @@ export function registerMemberData( newMemberData ) {
     afterSuccess: ({dispatch, response}) => {
       localStorage.token = response.token;
       dispatch(fetchMemberData());
-      dispatch(changeModalActive('login', false));
       location.href = "/";
     },
     afterError: async({dispatch, httpResponse}) => {
