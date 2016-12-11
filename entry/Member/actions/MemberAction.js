@@ -80,25 +80,25 @@ export function logout() {
 
 
 export function registerMemberData( newMemberData ) {
-  let user = Object.assign({}, newMemberData, { RoleId: 1});
-
   return {
     actionType: [REGISTER_MEMBER_DATA.request, REGISTER_MEMBER_DATA.success, REGISTER_MEMBER_DATA.error],
-    callAPI: () => fetch('/api/user/', {
+    callAPI: () => fetch('/api/auth/local/register', {
       method: 'POST',
-      body: JSON.stringify({ user })
+      body: JSON.stringify(newMemberData)
     }),
     afterSuccess: ({dispatch, response}) => {
-      dispatch(addNotification({
-        title: '註冊成功',
-        message: '感謝您的加入，祝您購物愉快',
-        type: 'success'
-      }));
+      localStorage.token = response.token;
+      dispatch(fetchMemberData());
+      dispatch(changeModalActive('login', false));
+      location.href = "/";
     },
     afterError: async({dispatch, httpResponse}) => {
+      const body = await httpResponse.text();
+      const message = body || '請聯絡管理人員';
+
       dispatch(addNotification({
         title: '註冊失敗',
-        message: '請聯絡管理人員',
+        message: message,
         type: 'error'
       }));
     }

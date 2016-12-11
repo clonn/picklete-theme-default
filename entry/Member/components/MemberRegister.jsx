@@ -1,48 +1,97 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { registerMemberData } from 'Member/actions/MemberAction'
-
+import zipCodeData from 'Checkout/constants/zipCodeData'
 
 class MemberRegister extends Component {
   state = {
-    account: '',
+    email: '',
     password: '',
-    passwordConfirm: '',
-    name: '',
+    passwordAgain: '',
+    fullName: '',
     mobile: '',
-    birth: '',
-    address: ''
+    birthYear: '',
+    birthMonth: '',
+    birthDay: '',
+    city: '台北市',
+    region: '中正區',
+    address: '',
+    zipcode: '100'
   }
 
   handleMemberRegisterChange = (event) => {
-    let data = {};
     const eventTarget = event.target;
-    data[eventTarget.id] = eventTarget.value;
+    const data = { [eventTarget.id]: eventTarget.value };
     this.setState(data);
+  }
+
+  handlerAddressChange = (regions, event) => {
+    const eventTarget = event.target;
+    // console.log(regions)
+    // console.log(event)
+    console.log(this.props)
+    let city, region, zipcode
+
+    switch (eventTarget.id) {
+      case 'city':
+        city = { [eventTarget.id]: eventTarget.value };
+        region = { region: Object.keys(regions)[0] };
+        zipcode = { zipcode: regions[0]};
+
+        this.setState(city, () => {
+          this.setState(region, () => {
+            this.setState(zipcode)
+          });
+        });
+
+        break;
+
+      case 'region':
+        region = { [eventTarget.id]: eventTarget.value };
+        zipcode = { zipcode: regions[region]}
+
+        this.setState(region, () => {
+          this.setState(zipcode)
+        });
+
+        break;
+    }
   }
 
   sendRegister = () => {
     const newMemberData = {
-      username: this.state.account,
-      email: this.state.account,
+      email: this.state.email,
       password: this.state.password,
-      fullName: this.state.name,
+      passwordAgain: this.state.passwordAgain,
+      fullName: this.state.fullName,
       mobile: this.state.mobile,
-      address: this.state.address
+      birthYear: this.state.birthYear,
+      birthMonth: this.state.birthMonth,
+      birthDay: this.state.birthDay,
+      city: this.state.city,
+      region: this.state.region,
+      address: this.state.address,
+      zipcode: this.state.zipcode
     }
 
-    this.props.dispatch(registerMemberData(newMemberData));
+    console.log(newMemberData)
+    // this.props.dispatch(registerMemberData(newMemberData));
   }
 
   render() {
+    const citys = Object.keys(zipCodeData);
+    const regions = Object.keys(zipCodeData[this.state.city]);
+
+    // const shipmentZipCode = zipCodeData[this.state.shipment.city][this.state.region];
+
     return (
       <div className="container">
         <h3>帳戶</h3>
         <div className="form-horizontal">
           <div className="form-group">
-            <label htmlFor="account" className="col-sm-2 control-label">帳號</label>
+            <label htmlFor="email" className="col-sm-2 control-label">帳號</label>
             <div className="col-sm-10">
-              <input value={this.state.account} id="account" type="text" className="form-control" placeholder="請填寫電子郵件信箱" onChange={this.handleMemberRegisterChange}/>
+              <input value={this.state.email} id="email" type="text" className="form-control" placeholder="請填寫電子郵件信箱" onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
           <div className="form-group">
@@ -52,9 +101,9 @@ class MemberRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="passwordConfirm" className="col-sm-2 control-label">確認密碼</label>
+            <label htmlFor="passwordAgain" className="col-sm-2 control-label">確認密碼</label>
             <div className="col-sm-10">
-              <input value={this.state.passwordConfirm} id="passwordConfirm" type="password" className="form-control" placeholder="請再次輸入密碼" onChange={this.handleMemberRegisterChange}/>
+              <input value={this.state.passwordAgain} id="passwordAgain" type="password" className="form-control" placeholder="請再次輸入密碼" onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
         </div>
@@ -62,9 +111,9 @@ class MemberRegister extends Component {
         <h3>基本資料</h3>
         <div className="form-horizontal">
           <div className="form-group">
-            <label htmlFor="name" className="col-sm-2 control-label">中文姓名</label>
+            <label htmlFor="fullName" className="col-sm-2 control-label">中文姓名</label>
             <div className="col-sm-10">
-              <input value={this.state.name} id="name" type="text" className="form-control" placeholder="請填寫本名" onChange={this.handleMemberRegisterChange}/>
+              <input value={this.state.fullName} id="fullName" type="text" className="form-control" placeholder="請填寫本名" onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
           <div className="form-group">
@@ -74,14 +123,68 @@ class MemberRegister extends Component {
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="birth" className="col-sm-2 control-label">生日</label>
-            <div className="col-sm-10">
-              <input value={this.state.birth} id="birth" type="date" className="form-control" placeholder="" onChange={this.handleMemberRegisterChange}/>
+            <label htmlFor="birthYear" className="col-sm-2 control-label">生日</label>
+            <div className="col-sm-3">
+              <select value={this.state.birthYear} id="birthYear" className="form-control" onChange={this.handleMemberRegisterChange}>
+                <option value="2000">2000</option>
+                <option value="1999">1999</option>
+                <option value="1998">1998</option>
+                <option value="1997">1997</option>
+                <option value="1996">1996</option>
+                <option value="1995">1995</option>
+              </select>
+            </div>
+            <div className="col-sm-3">
+              <select value={this.state.birthMonth} id="birthMonth" className="form-control" onChange={this.handleMemberRegisterChange}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+              </select>
+            </div>
+            <div className="col-sm-3">
+              <select value={this.state.birthDay} id="birthDay" className="form-control" onChange={this.handleMemberRegisterChange}>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
             </div>
           </div>
           <div className="form-group">
             <label htmlFor="address" className="col-sm-2 control-label">聯絡地址</label>
-            <div className="col-sm-10">
+            <div className="col-sm-1">
+              <input value={this.state.zipcode} id="zipcode" ref="zipcode" type="text" className="form-control" readOnly onChange={this.handleMemberRegisterChange}/>
+            </div>
+            <div className="col-sm-2">
+              <select value={this.state.city} id="city" ref="city" className="form-control" onChange={this.handlerAddressChange.bind(null,zipCodeData[this.state.city])}>
+                {citys.map((city, index) => (
+                  <option value={city} key={index}>{city}</option>
+                ))}
+              </select>
+            </div>
+            <div className="col-sm-2">
+              <select value={this.state.region} id="region" ref="region" className="form-control" onChange={this.handlerAddressChange.bind(null,zipCodeData[this.state.city])}>
+                {regions.map((region, index) => (
+                  <option value={region} key={index}>{region}</option>
+                ))}
+              </select>
+            </div>
+            <div className="col-sm-5">
               <input value={this.state.address} id="address" type="text" className="form-control" placeholder="請輸入地址" onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
@@ -102,5 +205,5 @@ class MemberRegister extends Component {
 }
 
 export default connect(state => ({
-  member: state.member
+  member: state.user
 }))(MemberRegister);
