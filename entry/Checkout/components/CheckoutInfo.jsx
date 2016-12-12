@@ -9,22 +9,22 @@ export default class CheckoutInfo extends Component {
     orderItems: [],
     shippingRegion: '台灣本島',
     user: {
-      username: '周昱安',
-      mobile: '09891885627',
+      username: '',
+      mobile: '',
       taxId: '',
       zipcode: '100',
       city: '台北市',
       region: '中正區',
-      address: '測試'
+      address: ''
     },
     shipment: {
-      username: '嫩嫩',
-      mobile: '0989987987',
+      username: '',
+      mobile: '',
       email: '',
       zipcode: '100',
       city: '台北市',
       region: '中正區',
-      address: '測試二',
+      address: '',
       shippingType: 'colddelivery',
       shippingRegion: '台灣本島',
       taxId: '',
