@@ -42,6 +42,15 @@ export default class CheckoutInfo extends Component {
     shipment: {}
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (_.isEmpty(this.props.memberData) && !_.isEmpty(nextProps.memberData)) {
+      this.setState({
+        user: Object.assign(this.state.user, nextProps.memberData),
+        shipment: Object.assign(this.state.shipment, nextProps.memberData),
+      });
+    }
+  }
+
   handleCityChange = (type, event) => {
     this.setState({
       [type]: {
@@ -198,7 +207,7 @@ export default class CheckoutInfo extends Component {
                 </li>
                 <li className="row c-border-bottom"></li>
 
-                {this.props.data.map((item, index) => (
+                {this.props.cartData.map((item, index) => (
                   <li className="row c-margin-b-15 c-margin-t-15" key={index}>
                     <div className="col-md-6 c-font-20">
                       <a href="shop-product-details.html" className="c-theme-link">{item.name} x {item.quantity}</a>
