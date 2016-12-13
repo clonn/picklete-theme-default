@@ -42,12 +42,22 @@ export default class CheckoutInfo extends Component {
     shipment: {}
   }
 
+  autoFillInfoFromMemberData(memberData) {
+    this.setState({
+      user: Object.assign(this.state.user, memberData),
+      shipment: Object.assign(this.state.shipment, memberData),
+    });
+  }
+
   componentWillReceiveProps(nextProps) {
     if (_.isEmpty(this.props.memberData) && !_.isEmpty(nextProps.memberData)) {
-      this.setState({
-        user: Object.assign(this.state.user, nextProps.memberData),
-        shipment: Object.assign(this.state.shipment, nextProps.memberData),
-      });
+      this.autoFillInfoFromMemberData(nextProps.memberData);
+    }
+  }
+  
+  componentDidMount() {
+    if (this.props.memberData) {
+      this.autoFillInfoFromMemberData(this.props.memberData);
     }
   }
 
