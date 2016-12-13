@@ -10,7 +10,7 @@ import AppNotificationContainer from 'App/containers/AppNotificationContainer'
 
 import { fetchAPI as fetchDptsAPI } from 'Shop/actions/DptActions'
 import { fetchListAPI as fetchProductListAPI } from 'Shop/actions/ProductActions'
-import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberAction'
+import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberActions'
 import { getShippingFee } from 'Checkout/actions/CheckoutActions'
 
 import 'vendor/vendor.scss'

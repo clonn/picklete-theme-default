@@ -27,11 +27,11 @@ export function checkout(data) {
       response.allPayData.ClientBackURL = `${APP_DOMIAN}/checkout/complete/?${queryString.stringify(query)}`;
       console.log(response);
 
-      basicFormSubmit({
-        method: 'POST',
-        action: response.AioCheckOut,
-        formData: response.allPayData
-      });
+      // basicFormSubmit({
+      //   method: 'POST',
+      //   action: response.AioCheckOut,
+      //   formData: response.allPayData
+      // });
     },
     afterError: ({dispatch, httpResponse}) => {
       console.log(httpResponse);

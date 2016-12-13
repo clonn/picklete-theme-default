@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { ModalContainer, ModalDialog } from 'react-modal-dialog'
-import { login } from 'Member/actions/MemberAction'
+import { login } from 'Member/actions/MemberActions'
 import { changeModalActive} from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { registerMemberData } from 'Member/actions/MemberAction'
+import { registerMemberData } from 'Member/actions/MemberActions'
 
 
 class MemberRegister extends Component {

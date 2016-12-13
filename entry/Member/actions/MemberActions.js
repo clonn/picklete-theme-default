@@ -69,6 +69,7 @@ export function logout() {
   return {
     actionType: [LOGOUT.request, LOGOUT.success, LOGOUT.error],
     callAPI: () => fetch('/api/logout'),
+    handleResponse: (httpResponse) => httpResponse.text(),
     afterSuccess: ({dispatch, response}) => {
       dispatch(addNotification({
         title: '登出成功',
