@@ -8,6 +8,7 @@ import dpts from 'Shop/reducers/DptReducers'
 import products from 'Shop/reducers/ProductReducers'
 import cart from 'Cart/reducers/CartReducers'
 import member from 'Member/reducers/MemberReducers'
+import checkout from 'Checkout/reducers/CheckoutReducers'
 
 export default combineReducers({
   modals,
@@ -15,5 +16,6 @@ export default combineReducers({
   dpts,
   products,
   cart,
-  member
+  member,
+  checkout
 });

@@ -38,3 +38,12 @@ export function checkout(data) {
     }
   };
 }
+
+export const GET_SHIPPING_FEE = createFetchActionType('checkout', 'GET_SHIPPING_FEE');
+export function getShippingFee() {
+  return {
+    actionType: [GET_SHIPPING_FEE.request, GET_SHIPPING_FEE.success, GET_SHIPPING_FEE.error],
+    callAPI: () => fetch('/api/indexInfos'),
+    handleResponse: async (httpResponse) => (await httpResponse.json()).shippings[0]
+  }
+}

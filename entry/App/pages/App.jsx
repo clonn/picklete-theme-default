@@ -10,8 +10,8 @@ import AppNotificationContainer from 'App/containers/AppNotificationContainer'
 
 import { fetchAPI as fetchDptsAPI } from 'Shop/actions/DptActions'
 import { fetchListAPI as fetchProductListAPI } from 'Shop/actions/ProductActions'
-
 import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberAction'
+import { getShippingFee } from 'Checkout/actions/CheckoutActions'
 
 import 'vendor/vendor.scss'
 import 'App/styles/App.scss'
@@ -30,6 +30,7 @@ class App extends Component {
   componentDidMount() {
     this.props.dispatch(fetchDptsAPI());
     this.props.dispatch(fetchProductListAPI());
+    this.props.dispatch(getShippingFee());
     this.checkAuthToken();
     this.props.dispatch(fetchMemberData());
   }
@@ -62,7 +63,6 @@ class App extends Component {
         <AppModalContainer/>
         <AppNotificationContainer/>
       </div>
-
     )
   }
 }

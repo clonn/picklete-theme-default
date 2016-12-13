@@ -24,6 +24,7 @@ class CheckoutInfoContainer extends Component {
         totalPrice={this.props.cart.totalPrice}
         cartData={this.props.cart.data}
         memberData={this.props.member.data}
+        shippingFee={this.props.checkout.shippingFee}
         dispatchCheckout={this.dispatchCheckout}/>
     )
   }
@@ -31,5 +32,6 @@ class CheckoutInfoContainer extends Component {
 
 export default connect(state => ({
   cart: state.cart,
-  member: state.member
+  member: state.member,
+  checkout: state.checkout
 }))(CheckoutInfoContainer);

@@ -9,6 +9,8 @@ export default class CartComponent extends Component {
     this.props.dispatchChangeCartItemQuantity(index, quantity);
   }
   render() {
+    const shippingFee = (this.props.totalPrice >= this.props.shippingFee.freeShipping)? 0 : this.props.shippingFee.fee;
+
     return (
       <div className="c-shop-cart-page-1">
         <div className="row c-cart-table-title">
@@ -75,7 +77,7 @@ export default class CartComponent extends Component {
               <h3 className="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">運費</h3>
             </div>
             <div className="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border">
-              <h3 className="c-font-bold c-font-16">$140</h3>
+              <h3 className="c-font-bold c-font-16">{(shippingFee == 0)? '免運費' : `$${shippingFee}`}</h3>
             </div>
           </div>
         </div>
@@ -85,7 +87,7 @@ export default class CartComponent extends Component {
               <h3 className="c-font-uppercase c-font-bold c-right c-font-16 c-font-grey-2">結帳總價</h3>
             </div>
             <div className="col-md-1 col-sm-6 col-xs-6 c-cart-subtotal-border">
-              <h3 className="c-font-bold c-font-16">${this.props.totalPrice + 140}</h3>
+              <h3 className="c-font-bold c-font-16">${this.props.totalPrice + shippingFee}</h3>
             </div>
           </div>
         </div>

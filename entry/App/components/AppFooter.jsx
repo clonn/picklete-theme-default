@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 class AppFooter extends React.Component {
   render () {
     return (
-      <footer className="c-layout-footer c-layout-footer-6 ">
+      <footer className="c-layout-footer c-layout-footer-6 c-bg-grey-1">
         <div className="c-postfooter c-bg-dark-2">
           <div className="container">
             <div className="row">

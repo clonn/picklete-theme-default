@@ -20,6 +20,7 @@ class CartContainer extends Component {
       <CartComponent
         totalPrice={this.props.cart.totalPrice}
         data={this.props.cart.data}
+        shippingFee={this.props.checkout.shippingFee}
         dispatchRemoveCartItem={this.dispatchRemoveCartItem}
         dispatchChangeCartItemQuantity={this.dispatchChangeCartItemQuantity}/>
     )
@@ -27,5 +28,6 @@ class CartContainer extends Component {
 }
 
 export default connect(state => ({
-  cart: state.cart
+  cart: state.cart,
+  checkout: state.checkout
 }))(CartContainer);
