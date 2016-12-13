@@ -27,7 +27,7 @@ class HomeAboutInfo extends React.Component {
                   <div className="c-line-left hide"></div>
                   <form action="#">
                     <div className="input-group input-group-lg c-square">
-                      <input type="text" className="form-control c-square c-font-grey-3 c-border-grey c-theme" placeholder="您的Email" />
+                      <input type="text" className="form-control c-square c-font-grey-3 c-border-grey c-theme" placeholder="您的 Email" />
                       <span className="input-group-btn">
                         <button className="btn c-theme-btn c-theme-border c-btn-square c-btn-uppercase c-font-16" type="button">訂閱</button>
                       </span>

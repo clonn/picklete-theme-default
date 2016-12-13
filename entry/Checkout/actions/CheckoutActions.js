@@ -1,6 +1,3 @@
-import url from 'url'
-import queryString from 'query-string'
-
 import basicFormSubmit from 'generic/modules/basicFormSubmit'
 
 import createFetchActionType from 'generic/modules/createFetchActionType'
