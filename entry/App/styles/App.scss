@@ -6,12 +6,11 @@
 body {
   margin: 0px;
   // background-color: $bg-color1 !important;
-  @include font-family;
-  height: 1000px;
+  // @include font-family;
 }
 
 div, span, p, h1, h2, h3, h4, h5 {
-  @include font-family;
+  // @include font-family;
   // margin: 0px;
   // padding: 0px;
   font-weight: normal;

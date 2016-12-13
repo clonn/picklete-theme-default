@@ -4,6 +4,11 @@ import queryString from 'query-string'
 import 'Shop/styles/ShopProductListItem.scss'
 
 export default class ShopProductListItem extends Component {
+  static defaultProps = {
+    colMd: 3,
+    colSm: 6
+  }
+
   getCartItemData() {
     return {
       id: this.props.id,
@@ -20,7 +25,7 @@ export default class ShopProductListItem extends Component {
       subDptID: this.props.subDptID
     });
     return (
-      <div className="col-md-3 col-sm-6 c-margin-b-20">
+      <div className={`col-md-${this.props.colMd} col-sm-${this.props.colSm} c-margin-b-20`}>
         <div className="c-content-product-2 c-bg-white c-border">
           <div className="c-content-overlay">
             {(this.props.isHot) && (

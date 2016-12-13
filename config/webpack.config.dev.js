@@ -65,6 +65,9 @@ module.exports = {
 
     new webpack.ProvidePlugin({
       _: 'lodash'
+    }),
+    new webpack.DefinePlugin({
+      'APP_DOMIAN': `'http://dev.picklete.com'`
     })
   ]
 };

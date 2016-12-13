@@ -3,6 +3,8 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 
 
 import App from 'App/pages/App'
+import Home from 'Home/pages/Home'
+
 import Shop from 'Shop/pages/Shop'
 import Cart from 'Cart/pages/Cart'
 import Checkout from 'Checkout/pages/Checkout'
@@ -19,7 +21,7 @@ import MemberRegister from 'Member/components/MemberRegister'
 
 export default (
   <Route path="/" component={App}>
-    <IndexRoute name="home"/>
+    <IndexRoute name="home" component={Home}/>
     <Route path="shop" component={Shop}>
       <Route path="department/:dptID(/:subDptID)" component={ShopProductListContainer}/>
       <Route path="product/:productID" component={ShopProductDetailContainer}/>
@@ -31,7 +33,7 @@ export default (
       <Route path="information" component={CheckoutInfoContainer}/>
       <Route path="complete" component={CheckoutCompleteContainer}/>
     </Route>
-    <Route path="member" compoent={MemberInfo}>
+    <Route path="member" component={MemberInfo}>
       <Route path="register" component={MemberRegister}/>
     </Route>
 

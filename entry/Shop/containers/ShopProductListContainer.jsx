@@ -3,14 +3,9 @@ import { connect } from 'react-redux'
 
 import ShopProductListItem from 'Shop/components/ShopProductListItem'
 
-import { fetchListAPI } from 'Shop/actions/ProductActions'
 import { addItem as addCartItem } from 'Cart/actions/CartActions'
 
 class ShopProductListContainer extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchListAPI());
-  }
-
   dispatchAddCartItem = (item) => {
     this.props.dispatch(addCartItem(item));
   }

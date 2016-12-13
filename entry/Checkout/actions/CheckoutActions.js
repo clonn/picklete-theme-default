@@ -1,3 +1,6 @@
+import url from 'url'
+import queryString from 'query-string'
+
 import basicFormSubmit from 'generic/modules/basicFormSubmit'
 
 import createFetchActionType from 'generic/modules/createFetchActionType'
@@ -17,7 +20,13 @@ export function checkout(data) {
       }
     }),
     afterSuccess: ({dispatch, response}) => {
-      dispatch(cleanCart());
+      // dispatch(cleanCart());
+      // console.log(response);
+      // //
+      const query = url.parse(response.allPayData.ClientBackURL, true).query;
+      response.allPayData.ClientBackURL = `${APP_DOMIAN}/checkout/complete/?${queryString.stringify(query)}`;
+      console.log(response);
+
       basicFormSubmit({
         method: 'POST',
         action: response.AioCheckOut,
