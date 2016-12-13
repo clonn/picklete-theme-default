@@ -54,9 +54,9 @@ export default class CheckoutInfo extends Component {
       this.autoFillInfoFromMemberData(nextProps.memberData);
     }
   }
-  
+
   componentDidMount() {
-    if (this.props.memberData) {
+    if (!_.isEmpty(this.props.memberData)) {
       this.autoFillInfoFromMemberData(this.props.memberData);
     }
   }

@@ -24,6 +24,10 @@ export function login({email, password}) {
       localStorage.token = response.token;
       dispatch(fetchMemberData());
       dispatch(changeModalActive('login', false));
+      dispatch(addNotification({
+        title: '登入成功',
+        type: 'success'
+      }));
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();

@@ -64,7 +64,8 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
 
     new webpack.ProvidePlugin({
-      _: 'lodash'
+      _: 'lodash',
+      moment: 'moment'
     }),
     new webpack.DefinePlugin({
       'APP_DOMIAN': `'http://dev.picklete.com'`

@@ -10,6 +10,18 @@ import { cleanCart } from 'Cart/actions/CartActions'
 export const CHECKOUT = createFetchActionType('order', 'CHECKOUT');
 
 export function checkout(data) {
+  const { shipment, user, paymentMethod } = data;
+  localStorage.checkout = JSON.stringify({
+    cart: JSON.parse(localStorage.cart),
+    shippingFee: 70,
+    order: { paymentMethod },
+    user: {
+      name: user.username,
+      mobile: user.mobile,
+      shippingAddress: `${shipment.zipcode} ${shipment.city}${shipment.region}${shipment.address}`
+    }
+  });
+
   return {
     actionType: [CHECKOUT.request, CHECKOUT.success, CHECKOUT.error],
     callAPI: () => fetch('/api/orders', {
@@ -20,18 +32,11 @@ export function checkout(data) {
       }
     }),
     afterSuccess: ({dispatch, response}) => {
-      // dispatch(cleanCart());
-      // console.log(response);
-      // //
-      const query = url.parse(response.allPayData.ClientBackURL, true).query;
-      response.allPayData.ClientBackURL = `${APP_DOMIAN}/checkout/complete/?${queryString.stringify(query)}`;
-      console.log(response);
-
-      // basicFormSubmit({
-      //   method: 'POST',
-      //   action: response.AioCheckOut,
-      //   formData: response.allPayData
-      // });
+      basicFormSubmit({
+        method: 'POST',
+        action: response.AioCheckOut,
+        formData: response.allPayData
+      });
     },
     afterError: ({dispatch, httpResponse}) => {
       console.log(httpResponse);
