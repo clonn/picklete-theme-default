@@ -33,9 +33,6 @@ export default (
       <Route path="information" component={CheckoutInfoContainer}/>
       <Route path="complete" component={CheckoutCompleteContainer}/>
     </Route>
-    <Route path="member" component={MemberInfo}>
-      <Route path="register" component={MemberRegister}/>
-    </Route>
-
+    <Route path="member/register" component={MemberRegister}/>
   </Route>
 );

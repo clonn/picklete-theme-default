@@ -48,9 +48,9 @@ class MemberLoginModal extends Component {
               <button onClick={this.handleLogin} type="submit" className="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">登入</button>
               <div className="modal-footer c-no-border">
                 <span className="c-text-account">還沒註冊成會員？</span>
-                <a href="/member/register" className="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">
+                <Link to="/member/register" onClick={this.closeModal} className="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">
                   註冊
-                </a>
+                </Link>
               </div>
             </ModalDialog>
           </ModalContainer>
