@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { registerMemberData } from 'Member/actions/MemberAction'
+
+import { registerMemberData } from 'Member/actions/MemberActions'
 import zipCodeData from 'Checkout/constants/zipCodeData'
 
 class MemberRegister extends Component {
@@ -202,7 +203,3 @@ class MemberRegister extends Component {
 export default connect(state => ({
   member: state.user
 }))(MemberRegister);
-
-// <div className="col-sm-1">
-//                 <input value={zipcode} id="zipcode" type="text" className="form-control" readOnly/>
-//               </div>

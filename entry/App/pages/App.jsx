@@ -3,11 +3,15 @@ import { connect } from 'react-redux'
 import jwtDecode from 'jwt-decode'
 
 import AppBar from 'App/components/AppBar'
+import AppFooter from 'App/components/AppFooter'
+
 import AppModalContainer from 'App/containers/AppModalContainer'
 import AppNotificationContainer from 'App/containers/AppNotificationContainer'
 
 import { fetchAPI as fetchDptsAPI } from 'Shop/actions/DptActions'
-import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberAction'
+import { fetchListAPI as fetchProductListAPI } from 'Shop/actions/ProductActions'
+import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberActions'
+import { getShippingFee } from 'Checkout/actions/CheckoutActions'
 
 import 'vendor/vendor.scss'
 import 'App/styles/App.scss'
@@ -24,13 +28,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.fetchDptsAPI();
-    this.checkAuthToken();
-    this.dispatchFetchMemberData();
-  }
-
-  fetchDptsAPI() {
     this.props.dispatch(fetchDptsAPI());
+    this.props.dispatch(fetchProductListAPI());
+    this.props.dispatch(getShippingFee());
+    this.checkAuthToken();
+    this.props.dispatch(fetchMemberData());
   }
 
   checkAuthToken() {
@@ -48,10 +50,6 @@ class App extends Component {
     }
   }
 
-  dispatchFetchMemberData() {
-    this.props.dispatch(fetchMemberData());
-  }
-
   render() {
     return (
       <div>
@@ -61,10 +59,10 @@ class App extends Component {
             {this.props.children}
           </div>
         </div>
+        <AppFooter/>
         <AppModalContainer/>
         <AppNotificationContainer/>
       </div>
-
     )
   }
 }

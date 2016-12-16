@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import ShopDptListContainer from 'Shop/containers/ShopDptListContainer'
 
+const paymentMethod = {
+  Credit: '信用卡線上付款'
+}
 export default class CheckoutComplete extends Component {
   render() {
     return (
@@ -24,15 +27,15 @@ export default class CheckoutComplete extends Component {
             </li>
             <li>
               <h3>購買日期</h3>
-              <p>2016-11-22</p>
+              <p>{this.props.buyDate}</p>
             </li>
             <li>
               <h3>結帳總價</h3>
-              <p>${this.props.totalPrice + 10}</p>
+              <p>${this.props.cart.totalPrice + this.props.shippingFee}</p>
             </li>
             <li>
               <h3>付款方式</h3>
-              <p>信用卡線上付款</p>
+              <p>{paymentMethod[this.props.order.paymentMethod]}</p>
             </li>
           </ul>
         </div>
@@ -54,7 +57,7 @@ export default class CheckoutComplete extends Component {
             </div>
           </div>
 
-          {this.props.data.map((item, index) => (
+          {this.props.cart.data.map((item, index) => (
             <div className="c-border-bottom c-row-item" key={index}>
               <div className="row">
                 <div className="col-md-3 col-sm-12 c-image">
@@ -94,9 +97,8 @@ export default class CheckoutComplete extends Component {
               <div data-height="height">
                 <h3 className=" c-margin-b-20 c-font-uppercase c-font-22 c-font-bold">訂購人資訊</h3>
                 <ul className="list-unstyled">
-                  <li>姓名: John Doe</li>
-                  <li>電話: 800 123 3456</li>
-                  <li>Email: <a href="mailto:info@jango.com" className="c-theme-color">test@gmail.com</a></li>
+                  <li>姓名: {this.props.user.name}</li>
+                  <li>電話: {this.props.user.mobile}</li>
                 </ul>
               </div>
             </div>
@@ -104,7 +106,7 @@ export default class CheckoutComplete extends Component {
               <div data-height="height">
                 <h3 className=" c-margin-b-20 c-font-uppercase c-font-22 c-font-bold">運送地址</h3>
                 <ul className="list-unstyled">
-                  <li>台北市ＸＸ路ＸＸ區ＸＸ號</li>
+                  <li>{this.props.user.shippingAddress}</li>
                 </ul>
               </div>
             </div>

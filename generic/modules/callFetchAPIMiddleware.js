@@ -7,7 +7,7 @@ export default function callFetchAPIMiddleware({ dispatch, getState }) {
         actionType,
         callAPI,
         shouldCallAPI = (state) => true,
-        handleResponse = (httpResponse) => httpResponse.json(),
+        handleResponse = async (httpResponse) => await httpResponse.json(),
         afterSuccess = ({dispatch, state, response}) => {},
         afterError = ({dispatch, state, httpResponse}) => {},
         payload = {}

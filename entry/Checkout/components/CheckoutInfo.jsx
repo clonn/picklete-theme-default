@@ -9,22 +9,22 @@ export default class CheckoutInfo extends Component {
     orderItems: [],
     shippingRegion: '台灣本島',
     user: {
-      username: '周昱安',
-      mobile: '09891885627',
+      username: '',
+      mobile: '',
       taxId: '',
       zipcode: '100',
       city: '台北市',
       region: '中正區',
-      address: '測試'
+      address: ''
     },
     shipment: {
-      username: '嫩嫩',
-      mobile: '0989987987',
+      username: '',
+      mobile: '',
       email: '',
       zipcode: '100',
       city: '台北市',
       region: '中正區',
-      address: '測試二',
+      address: '',
       shippingType: 'colddelivery',
       shippingRegion: '台灣本島',
       taxId: '',
@@ -40,6 +40,25 @@ export default class CheckoutInfo extends Component {
   _refs = {
     user: {},
     shipment: {}
+  }
+
+  autoFillInfoFromMemberData(memberData) {
+    this.setState({
+      user: Object.assign(this.state.user, memberData),
+      shipment: Object.assign(this.state.shipment, memberData),
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (_.isEmpty(this.props.memberData) && !_.isEmpty(nextProps.memberData)) {
+      this.autoFillInfoFromMemberData(nextProps.memberData);
+    }
+  }
+
+  componentDidMount() {
+    if (!_.isEmpty(this.props.memberData)) {
+      this.autoFillInfoFromMemberData(this.props.memberData);
+    }
   }
 
   handleCityChange = (type, event) => {
@@ -82,6 +101,8 @@ export default class CheckoutInfo extends Component {
     const shipmentRegions = Object.keys(zipCodeData[this.state.shipment.city]);
     const userZipCode = zipCodeData[this.state.user.city][this.state.user.region];
     const shipmentZipCode = zipCodeData[this.state.shipment.city][this.state.shipment.region];
+    const shippingFee = (this.props.totalPrice >= this.props.shippingFee.freeShipping)? 0 : this.props.shippingFee.fee;
+
     return (
       <div className="c-shop-form-1">
         <div className="row">
@@ -198,7 +219,7 @@ export default class CheckoutInfo extends Component {
                 </li>
                 <li className="row c-border-bottom"></li>
 
-                {this.props.data.map((item, index) => (
+                {this.props.cartData.map((item, index) => (
                   <li className="row c-margin-b-15 c-margin-t-15" key={index}>
                     <div className="col-md-6 c-font-20">
                       <a href="shop-product-details.html" className="c-theme-link">{item.name} x {item.quantity}</a>
@@ -221,8 +242,7 @@ export default class CheckoutInfo extends Component {
                 <li className="row c-margin-b-15 c-margin-t-15">
                   <div className="col-md-6 c-font-20">運費</div>
                   <div className="col-md-6 c-font-20">
-                    <p className="">$
-                      <span className="c-subtotal">{this.state.shipment.shippingFee}</span>
+                    <p className="c-subtotal">{(shippingFee == 0)? '免運費' : `$${shippingFee}`}
                     </p>
                   </div>
                 </li>
@@ -232,7 +252,7 @@ export default class CheckoutInfo extends Component {
                   </div>
                   <div className="col-md-6 c-font-20">
                     <p className="c-font-bold c-font-30">$
-                      <span className="c-shipping-total">{this.props.totalPrice + this.state.shipment.shippingFee}</span>
+                      <span className="c-shipping-total">{this.props.totalPrice + shippingFee}</span>
                     </p>
                   </div>
                 </li>

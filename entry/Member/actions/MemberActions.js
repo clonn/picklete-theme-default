@@ -1,4 +1,5 @@
 import createFetchActionType from 'generic/modules/createFetchActionType'
+import { browserHistory } from 'react-router'
 
 import { changeModalActive } from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
@@ -24,6 +25,10 @@ export function login({email, password}) {
       localStorage.token = response.token;
       dispatch(fetchMemberData());
       dispatch(changeModalActive('login', false));
+      dispatch(addNotification({
+        title: '登入成功',
+        type: 'success'
+      }));
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();
@@ -69,6 +74,7 @@ export function logout() {
   return {
     actionType: [LOGOUT.request, LOGOUT.success, LOGOUT.error],
     callAPI: () => fetch('/api/logout'),
+    handleResponse: (httpResponse) => httpResponse.text(),
     afterSuccess: ({dispatch, response}) => {
       dispatch(addNotification({
         title: '登出成功',
@@ -88,8 +94,9 @@ export function registerMemberData( newMemberData ) {
     }),
     afterSuccess: ({dispatch, response}) => {
       localStorage.token = response.token;
+      dispatch(autoLogin());
       dispatch(fetchMemberData());
-      location.href = "/";
+      browserHistory.push('/');
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();
