@@ -15,6 +15,7 @@ class CheckoutInfoContainer extends Component {
       description: '',
       price: item.price
     }))
+    data.shipment.shippingFee = this.props.checkout.shippingFee.fee;
     this.props.dispatch(checkout(data));
   }
 

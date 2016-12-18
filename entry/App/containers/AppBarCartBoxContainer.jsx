@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { RootCloseWrapper } from 'react-overlays'
 import AppBar from 'App/components/AppBar'
 
 import { loadLocalStorage, removeItem as removeCartItem } from 'Cart/actions/CartActions'
@@ -16,11 +17,11 @@ class AppBarCartBoxContainer extends Component {
 
   render() {
     return (
-      <AppBarCartBox
-        totalPrice={this.props.cart.totalPrice}
-        data={this.props.cart.data}
-        dispatchRemoveCartItem={this.dispatchRemoveCartItem}
-        toggleCartBox={this.props.toggleCartBox}/>
+        <AppBarCartBox
+          totalPrice={this.props.cart.totalPrice}
+          data={this.props.cart.data}
+          dispatchRemoveCartItem={this.dispatchRemoveCartItem}
+          toggleCartBox={this.props.toggleCartBox}/>
     )
   }
 }
