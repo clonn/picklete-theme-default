@@ -3,6 +3,8 @@ import Icon from 'generic/components/Icon'
 import {DropdownButton, MenuItem} from 'react-bootstrap'
 import AppBarCartBox from 'App/components/AppBarCartBox'
 
+import 'App/styles/AppBarCartDropdown.scss'
+
 export default class AppBarCartDropdown extends Component {
   componentDidMount() {
     setTimeout(() => {
@@ -13,7 +15,7 @@ export default class AppBarCartDropdown extends Component {
   }
   render() {
     return (
-      <DropdownButton title={this.props.countNumber} open={this.props.open} onToggle={this.props.handleToggleDropdown} pullRight id="cart-dropdown">
+      <DropdownButton title={this.props.countNumber} open={this.props.open} onToggle={this.props.handleToggleDropdown} pullRight noCaret id="cart-dropdown">
         <AppBarCartBox
           totalPrice={this.props.totalPrice}
           data={this.props.data}
