@@ -14,6 +14,10 @@
     &  > .c-cart-menu {
       margin-top: -9px;
       box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+
+      & div.c-cart-menu-footer > a.btn {
+        margin-right: 10px;
+      }
     }
   }
 }

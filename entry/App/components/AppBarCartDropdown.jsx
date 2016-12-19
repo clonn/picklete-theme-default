@@ -15,7 +15,7 @@ export default class AppBarCartDropdown extends Component {
   }
   render() {
     return (
-      <DropdownButton title={this.props.countNumber} open={this.props.open} onToggle={this.props.handleToggleDropdown} pullRight noCaret id="cart-dropdown">
+      <DropdownButton title={<span>{this.props.countNumber}</span>} open={this.props.open} onToggle={this.props.handleToggleDropdown} pullRight noCaret id="cart-dropdown">
         <AppBarCartBox
           totalPrice={this.props.totalPrice}
           data={this.props.data}
