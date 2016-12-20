@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react'
+import React, { Component } from 'react'
 
-class AppFooter extends React.Component {
+class AppFooter extends Component {
   render () {
     return (
       <footer className="c-layout-footer c-layout-footer-6 c-bg-grey-1">
@@ -16,7 +16,6 @@ class AppFooter extends React.Component {
           </div>
         </div>
       </footer>
-
     )
   }
 }

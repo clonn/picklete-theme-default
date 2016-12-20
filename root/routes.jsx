@@ -8,7 +8,9 @@ import Home from 'Home/pages/Home'
 import Shop from 'Shop/pages/Shop'
 import Cart from 'Cart/pages/Cart'
 import Checkout from 'Checkout/pages/Checkout'
+import Member from 'Member/pages/Member'
 import MemberInfo from 'Member/pages/MemberInfo'
+import MemberOrderContainer from 'Member/containers/MemberOrderContainer'
 
 import ShopProductListContainer from 'Shop/containers/ShopProductListContainer'
 import ShopProductDetailContainer from 'Shop/containers/ShopProductDetailContainer'
@@ -29,10 +31,15 @@ export default (
     <Route path="cart" component={Cart}>
       <IndexRoute component={CartContainer}/>
     </Route>
+    <Route path="member/register" component={MemberRegister}/>
+
+    <Route path="member" component={Member}>
+      <Route path="orders" component={MemberOrderContainer}/>
+    </Route>
+
     <Route path="checkout" component={Checkout}>
       <Route path="information" component={CheckoutInfoContainer}/>
       <Route path="complete" component={CheckoutCompleteContainer}/>
     </Route>
-    <Route path="member/register" component={MemberRegister}/>
   </Route>
 );

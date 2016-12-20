@@ -3,7 +3,8 @@ import { Link } from 'react-router'
 import classNames from 'classnames'
 
 import AppBarLogo from 'App/components/AppBarLogo'
-import AppBarNavContainer from 'App/containers/AppBarNavContainer'
+import AppBarNavMember from 'App/components/AppBarNavMember'
+import AppBarNavShopContainer from 'App/containers/AppBarNavShopContainer'
 
 import AppBarCartDropdownContainer from 'App/containers/AppBarCartDropdownContainer'
 import AppBarLoginButton from 'App/containers/AppBarLoginButton'
@@ -47,7 +48,8 @@ export default class AppBar extends Component {
                 </div>
                 <nav className={navClassName}>
                   <ul className="nav navbar-nav c-theme-nav">
-                    <AppBarNavContainer/>
+                    <AppBarNavShopContainer/>
+                    <AppBarNavMember/>
                     <AppBarCartDropdownContainer/>
                     <AppBarLoginButton/>
                   </ul>
