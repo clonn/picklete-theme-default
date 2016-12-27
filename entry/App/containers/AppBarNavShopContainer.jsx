@@ -7,7 +7,7 @@ import AppBarNavGroupItem from 'App/components/AppBarNavGroupItem'
 
 import handleDptData from 'Shop/modules/handleDptData'
 
-class AppBarNavContainer extends Component {
+class AppBarNavShopContainer extends Component {
   static contextTypes = {
     params: PropTypes.object.isRequired,
   }
@@ -33,4 +33,4 @@ class AppBarNavContainer extends Component {
 
 export default connect(state => ({
   dpts: state.dpts
-}))(AppBarNavContainer);
+}))(AppBarNavShopContainer);

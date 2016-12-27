@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div>
         <div className="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
-          <AppBar cartItemsNumber={this.props.cart.data.length}/>
+          <AppBar/>
           <div className="page-container c-layout-page">
             {this.props.children}
           </div>

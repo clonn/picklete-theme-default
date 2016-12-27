@@ -28,7 +28,6 @@ export default class CheckoutInfo extends Component {
       shippingType: 'colddelivery',
       shippingRegion: '台灣本島',
       taxId: '',
-      shippingFee: 140
     },
     invoice: {
       type: 'duplex',
@@ -42,10 +41,26 @@ export default class CheckoutInfo extends Component {
     shipment: {}
   }
 
-  autoFillInfoFromMemberData(memberData) {
+  autoFillInfoFromMemberData({username, mobile, city, region, zipcode, address}) {
     this.setState({
-      user: Object.assign(this.state.user, memberData),
-      shipment: Object.assign(this.state.shipment, memberData),
+      user: {
+        ...this.state.user,
+        username,
+        mobile,
+        city,
+        region,
+        zipcode,
+        address
+      },
+      shipment: {
+        ...this.state.shipment,
+        username,
+        mobile,
+        city,
+        region,
+        zipcode,
+        address
+      }
     });
   }
 

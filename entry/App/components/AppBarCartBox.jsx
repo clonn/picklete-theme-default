@@ -18,17 +18,21 @@ export default class AppBarCartBox extends Component {
               </div>
               <img src={item.photo}/>
               <div className="c-cart-menu-content">
-                <Link to={`/shop/product/${item.id}`} onClick={this.props.toggleCartBox} className="c-item-name c-font-sbold">{item.name}</Link>
-                <p>{item.quantity} x <span className="c-item-price c-theme-font">${item.price}</span>
-                </p>
+                <Link to={`/shop/product/${item.id}`} onClick={this.props.closeDropdown} className="c-item-name c-font-sbold">{item.name}</Link>
+                <p>{item.quantity} x <span className="c-item-price c-theme-font">${item.price}</span></p>
               </div>
             </li>
           ))}
+          {this.props.data.length == 0 && (
+            <li>購物車中沒有商品</li>
+          )}
         </ul>
-        <div className="c-cart-menu-footer">
-          <Link to="/cart" onClick={this.props.toggleCartBox} className="btn btn-md c-btn c-btn-square c-btn-grey-3 c-font-white c-font-bold c-center c-font-uppercase">查看購物車</Link>
-          <Link to="/checkout/information" onClick={this.props.toggleCartBox} className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</Link>
-        </div>
+        {this.props.data.length != 0 && (
+          <div className="c-cart-menu-footer">
+            <Link to="/cart" onClick={this.props.closeDropdown} className="btn btn-md c-btn c-btn-square c-btn-grey-3 c-font-white c-font-bold c-center c-font-uppercase">查看購物車</Link>
+            <Link to="/checkout/information" onClick={this.props.closeDropdown} className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</Link>
+          </div>
+        )}
       </div>
     )
   }

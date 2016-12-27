@@ -1,0 +1,103 @@
+.order-item{
+  width: 882px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 12px;
+}
+
+.order-item-bar {
+  border: 1px solid #dbdbdb;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  width: 100%;
+
+  cursor: pointer;
+
+  & > div {
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+
+    // 訂購日期
+    &:first-of-type {
+      width: 125px;
+    }
+
+    // 訂單編號
+    &:nth-of-type(2) {
+      width: 180px;
+    }
+
+    // 付款方式
+    &:nth-of-type(3) {
+      width: 100px;
+    }
+
+    // 處理進度
+    &:nth-of-type(4) {
+      width: 100px;
+    }
+
+    // 出貨日期
+    &:nth-of-type(5) {
+      width: 125px;
+    }
+
+    // 應付金額
+    &:nth-of-type(6) {
+      width: 100px;
+    }
+
+    // 發票
+    &:nth-of-type(7) {
+      width: 150px;
+    }
+  }
+}
+
+.order-item-detail {
+  display: none;
+  width: 882px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dbdbdb;
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  padding: 30px;
+
+  &.open {
+    display: block;
+  }
+
+  & > table {
+    margin-top: 20px;
+    display: inline-block;
+
+    & > tr {
+      &:first-of-type {
+        color: #4DB6AC;
+      }
+      & > td {
+        padding: 8px;
+
+        &:first-of-type {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  & > .order-item-total {
+    display: inline-block;
+    margin-left: 50px;
+    padding: 20px;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+
+    & > div {
+      padding: 5px;
+      &:last-of-type {
+        color: red;
+        font-size: 18px;
+      }
+    }
+  }
+}
