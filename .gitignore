@@ -4,3 +4,4 @@ node_modules
 # Mac Only
 .DS_Store
 yarn.lock
+build
