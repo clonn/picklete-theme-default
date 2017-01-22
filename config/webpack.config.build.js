@@ -3,11 +3,9 @@ const webpack = require('webpack');
 
 const clientDir = path.resolve('./');
 const rootDir = path.resolve('../');
-const publicDir = path.resolve('../public');
-const config = require(`${rootDir}/config`);
+// const config = require(`${rootDir}/config`);
 
 module.exports = {
-
   entry: [
     'babel-polyfill',
     'whatwg-fetch',
@@ -15,9 +13,9 @@ module.exports = {
   ],
 
   output: {
-    path: path.join(publicDir, config.distPath.production),
+    path: path.join(clientDir, 'build'),
     filename: 'bundle.js',
-    publicPath: `http://${config.publicPath('production')}`
+    publicPath: 'http://dev.picklete.com/build/'
   },
 
   resolve: {
@@ -44,10 +42,10 @@ module.exports = {
       }
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader?sourceMap!resolve-url-loader'
+      loader: 'style-loader!css-loader!resolve-url-loader'
     }, {
       test: /\.scss$/,
-      loader: 'style-loader!css-loader?sourceMap!resolve-url-loader!sass-loader?sourceMap'
+      loader: 'style-loader!css-loader!resolve-url-loader!sass-loader'
     }, {
       test: /\.(jpe?g|JPE?G|png|PNG|gif|GIF|svg|SVG|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url?limit=1024&name=[sha512:hash:base64:7].[ext]'
@@ -56,17 +54,29 @@ module.exports = {
       loader: 'file?name=[sha512:hash:base64:7].[ext]'
     }]
   },
-
   plugins: [
+    new webpack.DefinePlugin({
+      'APP_DOMIAN': `'http://dev.picklete.com'`,
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      },
+      mangle: {
+        except: ['_']
+      }
+    }),
+
     new webpack.ProvidePlugin({
       _: 'lodash',
-      route: 'generic/modules/routeHelper',
-      apiRoute: 'generic/modules/apiRouteHelper'
+      moment: 'moment'
     }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   compressor: {
-    //     warnings: false
-    //   }
-    // })
+
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+
   ]
 };
