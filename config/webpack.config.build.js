@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.join(clientDir, 'build'),
     filename: 'bundle.js',
-    publicPath: 'http://dev.picklete.com/build/'
+    publicPath: require('../../config/env/production').domain + '/build'
   },
 
   resolve: {
@@ -80,3 +80,4 @@ module.exports = {
 
   ]
 };
+console.log(module.exports);
