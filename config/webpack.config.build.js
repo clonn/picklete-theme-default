@@ -45,7 +45,7 @@ module.exports = {
       loader: 'style-loader!css-loader!resolve-url-loader'
     }, {
       test: /\.scss$/,
-      loader: 'style-loader!css-loader!resolve-url-loader!sass-loader'
+      loader: 'style-loader!css-loader!resolve-url-loader!sass-loader?sourceMap'
     }, {
       test: /\.(jpe?g|JPE?G|png|PNG|gif|GIF|svg|SVG|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url?limit=1024&name=[sha512:hash:base64:7].[ext]'

@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node devServer.js",
-    "build": "rm -rf ./build && NODE_ENV=production webpack --config config/webpack.config.build.js"
+    "build": "rm -rf ./build && webpack --config config/webpack.config.build.js"
   },
   "devDependencies": {
     "webpack-dev-middleware": "^1.4.0",
@@ -31,6 +31,7 @@
     "owl.carousel": "^2.1.4",
     "query-string": "^4.2.3",
     "react": "^15.4.1",
+    "react-bootstrap": "^0.30.7",
     "react-dom": "^15.4.1",
     "react-modal-dialog": "^4.0.2",
     "react-notification-system": "^0.2.10",
