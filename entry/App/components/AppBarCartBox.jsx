@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
-import 'App/Styles/AppBarCartBox.scss'
+import 'App/styles/AppBarCartBox.scss'
 
 export default class AppBarCartBox extends Component {
   render() {
