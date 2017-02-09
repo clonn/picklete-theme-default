@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node devServer.js",
-    "build": "rm -rf ../public/build/ && NODE_ENV=production webpack --config config/webpack.config.build.js"
+    "build": "rm -rf ./build && NODE_ENV=production webpack --config config/webpack.config.build.js"
   },
   "devDependencies": {
     "webpack-dev-middleware": "^1.4.0",
