@@ -3,7 +3,7 @@ const webpack = require('webpack');
 
 const clientDir = path.resolve('./');
 const rootDir = path.resolve('../');
-// const config = require(`${rootDir}/config`);
+const config = require(`${rootDir}/config/env/production`);
 
 module.exports = {
   entry: [
@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.join(clientDir, 'build'),
     filename: 'bundle.js',
-    publicPath: require('../../config/env/production').domain + '/build'
+    publicPath: config.domain + '/build'
   },
 
   resolve: {
@@ -56,7 +56,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'APP_DOMIAN': `'http://dev.picklete.com'`,
+      'APP_DOMIAN': config.domain,
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
@@ -80,4 +80,3 @@ module.exports = {
 
   ]
 };
-console.log(module.exports);
