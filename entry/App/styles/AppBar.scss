@@ -21,3 +21,11 @@
   height: 50px;
   margin: 0px;
 }
+
+nav.c-mega-menu > ul > li:nth-child(1) > ul {
+  top: 65px;
+}
+
+.dropdown-menu.c-menu-type-inline{
+  border: none;
+}
