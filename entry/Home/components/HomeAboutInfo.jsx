@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 class HomeAboutInfo extends React.Component {
   render () {
+    const { company } = this.props;
     return (
       <footer className="c-layout-footer c-layout-footer-6 c-bg-grey-1">
         <div className="container">
@@ -11,13 +12,11 @@ class HomeAboutInfo extends React.Component {
                 <div className="col-md-7">
                   <div className="c-content-title-1 c-title-md">
                     <h3 className="c-font-uppercase c-font-bold">About
-                      <span className="c-theme-font"> EXMA-Square</span>
+                      <span className="c-theme-font"> {company.name}</span>
                     </h3>
                     <div className="c-line-left hide"></div>
                   </div>
-                  <p className="c-text c-font-16 c-font-regular">
-                    使用業界領先技術架構，為您打造高品質、低維護成本的網站。我們堅持優先考量使用者體驗，並採用RWD，讓您的網站無論在手機、平板、或是電腦上，都有一流的瀏覽品質。
-                  </p>
+                  <p className="c-text c-font-16 c-font-regular">{company.desc}</p>
                 </div>
                 <div className="col-md-5">
                   <div className="c-content-title-1 c-title-md">

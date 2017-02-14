@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import jwtDecode from 'jwt-decode'
 
 import AppBar from 'App/components/AppBar'
-import AppFooter from 'App/components/AppFooter'
 
+import AppFooterContainer from 'App/containers/AppFooterContainer'
 import AppModalContainer from 'App/containers/AppModalContainer'
 import AppNotificationContainer from 'App/containers/AppNotificationContainer'
 
@@ -12,6 +12,7 @@ import { fetchAPI as fetchDptsAPI } from 'Shop/actions/DptActions'
 import { fetchListAPI as fetchProductListAPI } from 'Shop/actions/ProductActions'
 import { fetchMemberData, autoLogin, logout } from 'Member/actions/MemberActions'
 import { getShippingFee } from 'Checkout/actions/CheckoutActions'
+import { fetchCompanyAPI } from 'App/actions/GeneralDataActions'
 
 import 'vendor/vendor.scss'
 import 'App/styles/App.scss'
@@ -33,6 +34,7 @@ class App extends Component {
     this.props.dispatch(getShippingFee());
     this.checkAuthToken();
     this.props.dispatch(fetchMemberData());
+    this.props.dispatch(fetchCompanyAPI());
   }
 
   checkAuthToken() {
@@ -54,12 +56,12 @@ class App extends Component {
     return (
       <div>
         <div className="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
-          <AppBar member={this.props.member}/>
+          <AppBar member={this.props.member} logo={this.props.company.data.logo}/>
           <div className="page-container c-layout-page">
             {this.props.children}
           </div>
         </div>
-        <AppFooter/>
+        <AppFooterContainer/>
         <AppModalContainer/>
         <AppNotificationContainer/>
       </div>
@@ -69,5 +71,6 @@ class App extends Component {
 
 export default connect(state => ({
   cart: state.cart,
-  member: state.member
+  member: state.member,
+  company: state.company
 }))(App);
