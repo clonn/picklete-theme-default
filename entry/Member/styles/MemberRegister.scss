@@ -1,0 +1,10 @@
+.ms-DatePicker-weekday {
+  text-align: center;
+}
+
+.ms-DatePicker input {
+  &:focus,&:active,&:hover {
+    border-color: rgb(102, 175, 233);
+  }
+  border-radius: 4px;
+}

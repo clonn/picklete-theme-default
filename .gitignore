@@ -6,4 +6,5 @@ node_modules
 build
 .history
 .vscode
+yarn-error.log
 yarn.lock
