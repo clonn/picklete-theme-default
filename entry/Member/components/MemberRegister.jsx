@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Helmet from "react-helmet"
 
 import DatePickerWithInputField from 'generic/components/DatePickerWithInputField'
 import { registerMemberData } from 'Member/actions/MemberActions'
@@ -94,12 +95,15 @@ class MemberRegister extends Component {
 
     return (
       <div className="container">
-        <h3>帳戶</h3>
-        <div className="form-horizontal">
-          <div className="form-group">
-            <label htmlFor="email" className="col-sm-2 control-label">帳號</label>
-            <div className="col-sm-10">
-              <input value={this.state.email} id="email" type="text" className="form-control" placeholder="請填寫電子郵件信箱" onChange={this.handleMemberRegisterChange} required/>
+        <Helmet title="Picklete - 會員專區 - 註冊會員"/>
+        <form>
+          <h3>帳戶</h3>
+          <div className="form-horizontal">
+            <div className="form-group">
+              <label htmlFor="email" className="col-sm-2 control-label">帳號</label>
+              <div className="col-sm-10">
+                <input value={this.state.email} id="email" type="text" className="form-control" placeholder="請填寫電子郵件信箱" onChange={this.handleMemberRegisterChange} required/>
+              </div>
             </div>
           </div>
           <div className="form-group">

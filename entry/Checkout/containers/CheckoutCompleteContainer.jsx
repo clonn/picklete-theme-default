@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Helmet from "react-helmet"
 
 import AppBar from 'App/components/AppBar'
 import CheckoutComplete from 'Checkout/components/CheckoutComplete'
@@ -24,7 +25,12 @@ class CheckoutCompleteContainer extends Component {
 
   render() {
     return (
-      <CheckoutComplete {...this.data} buyDate={moment(new Date()).format('YYYY-MM-DD')}/>
+      <div>
+        <Helmet title="Picklete - 結帳購買 - 結帳完成"/>
+        {this.data && (
+          <CheckoutComplete {...this.data} buyDate={moment(new Date()).format('YYYY-MM-DD')}/>
+        )}   
+      </div>
     );
   }
 }

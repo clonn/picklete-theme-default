@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div>
         <div className="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
-          <AppBar/>
+          <AppBar member={this.props.member}/>
           <div className="page-container c-layout-page">
             {this.props.children}
           </div>
@@ -68,5 +68,6 @@ class App extends Component {
 }
 
 export default connect(state => ({
-  cart: state.cart
+  cart: state.cart,
+  member: state.member
 }))(App);

@@ -8,7 +8,7 @@ class AppFooter extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6 col-sm-12 c-col">
-                <p className="c-copyright c-font-grey">2016 &copy; EXMA-Square
+                <p className="c-copyright c-font-grey">2017 &copy; EXMA-Square
                   <span className="c-font-grey-3"> All Rights Reserved.</span>
                 </p>
               </div>
