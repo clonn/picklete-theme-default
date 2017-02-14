@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import 'App/styles/AppBarCartBox.scss'
 
 export default class AppBarCartBox extends Component {
+
   render() {
     return (
       <div className="c-cart-menu">
@@ -30,7 +31,7 @@ export default class AppBarCartBox extends Component {
         {this.props.data.length != 0 && (
           <div className="c-cart-menu-footer">
             <Link to="/cart" onClick={this.props.closeDropdown} className="btn btn-md c-btn c-btn-square c-btn-grey-3 c-font-white c-font-bold c-center c-font-uppercase">查看購物車</Link>
-            <Link to="/checkout/information" onClick={this.props.closeDropdown} className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</Link>
+            <button onClick={this.props.goCheckout} className="btn btn-md c-btn c-btn-square c-theme-btn c-font-white c-font-bold c-center c-font-uppercase">結帳購買</button>
           </div>
         )}
       </div>
