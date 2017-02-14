@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackNotifierPlugin = require('webpack-notifier');
 
 const clientDir = path.resolve('./');
 const rootDir = path.resolve('../');
-// const config = require(`${rootDir}/config`);
+
 
 module.exports = {
   entry: [
@@ -69,6 +70,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'APP_DOMIAN': `'http://dev.picklete.com'`
-    })
+    }),
+
+    new WebpackNotifierPlugin()
   ]
 };

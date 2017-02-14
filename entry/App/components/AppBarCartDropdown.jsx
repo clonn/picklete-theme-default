@@ -20,6 +20,7 @@ export default class AppBarCartDropdown extends Component {
           totalPrice={this.props.totalPrice}
           data={this.props.data}
           closeDropdown={this.props.closeDropdown}
+          goCheckout={this.props.goCheckout}
           dispatchRemoveCartItem={this.props.dispatchRemoveCartItem}/>
       </DropdownButton>
     );
