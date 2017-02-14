@@ -20,8 +20,8 @@ export default class HomeSlider extends Component {
       <div className="home-slider">
         <Slider {...settings}>
           {this.props.slides.map((slide, index) => (
-            <a href={slide.link}>
-              <div className="item" style={{backgroundImage: `url('${slide.cover}'`}} key={index}/>
+            <a href={slide.link} key={index}>
+              <div className="item" style={{backgroundImage: `url('${slide.cover}'`}}/>
             </a>
           ))}
         </Slider>
