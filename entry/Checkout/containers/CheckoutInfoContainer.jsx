@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Helmet from "react-helmet"
 
 import AppBar from 'App/components/AppBar'
 
@@ -21,12 +22,15 @@ class CheckoutInfoContainer extends Component {
 
   render() {
     return (
-      <CheckoutInfo
-        totalPrice={this.props.cart.totalPrice}
-        cartData={this.props.cart.data}
-        memberData={this.props.member.data}
-        shippingFee={this.props.checkout.shippingFee}
-        dispatchCheckout={this.dispatchCheckout}/>
+      <div>
+        <Helmet title="Picklete - 結帳購買 - 結帳資訊"/>
+        <CheckoutInfo
+          totalPrice={this.props.cart.totalPrice}
+          cartData={this.props.cart.data}
+          memberData={this.props.member.data}
+          shippingFee={this.props.checkout.shippingFee}
+          dispatchCheckout={this.dispatchCheckout}/>
+      </div>
     )
   }
 }

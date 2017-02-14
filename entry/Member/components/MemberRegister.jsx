@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import Helmet from "react-helmet"
 
 import { registerMemberData } from 'Member/actions/MemberActions'
 import zipCodeData from 'Checkout/constants/zipCodeData'
@@ -80,6 +81,7 @@ class MemberRegister extends Component {
 
     return (
       <div className="container">
+        <Helmet title="Picklete - 會員專區 - 註冊會員"/>
         <form>
           <h3>帳戶</h3>
           <div className="form-horizontal">

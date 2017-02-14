@@ -49,7 +49,9 @@ export default class AppBar extends Component {
                 <nav className={navClassName}>
                   <ul className="nav navbar-nav c-theme-nav">
                     <AppBarNavShopContainer/>
-                    <AppBarNavMember/>
+                    {this.props.member.status && (
+                      <AppBarNavMember/>
+                    )}
                     <AppBarCartDropdownContainer/>
                     <AppBarLoginButton/>
                   </ul>
