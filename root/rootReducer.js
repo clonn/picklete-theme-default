@@ -10,6 +10,7 @@ import cart from 'Cart/reducers/CartReducers'
 import member from 'Member/reducers/MemberReducers'
 import orders from 'Member/reducers/OrderReducers'
 import checkout from 'Checkout/reducers/CheckoutReducers'
+import slides from 'Home/reducers/SliderReducers'
 
 export default combineReducers({
   modals,
@@ -19,5 +20,6 @@ export default combineReducers({
   cart,
   member,
   checkout,
-  orders
+  orders,
+  slides
 });

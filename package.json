@@ -19,6 +19,7 @@
     "bootstrap": "^3.3.7",
     "classnames": "^2.2.5",
     "css-loader": "^0.23.1",
+    "date-fns": "^1.27.2",
     "express": "^4.13.3",
     "fancybox": "^3.0.0",
     "file-loader": "^0.9.0",
@@ -28,6 +29,7 @@
     "lodash": "^4.16.2",
     "moment": "^2.15.1",
     "node-sass": "^3.6.0",
+    "office-ui-fabric-react": "^1.6.0",
     "owl.carousel": "^2.1.4",
     "query-string": "^4.2.3",
     "react": "^15.4.1",
@@ -38,14 +40,17 @@
     "react-notification-system": "^0.2.10",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
+    "react-slick": "^0.14.6",
     "redux": "^3.6.0",
     "redux-router": "^2.1.2",
     "redux-thunk": "^2.1.0",
     "resolve-url-loader": "^1.6.0",
     "sass-loader": "^3.2.0",
+    "slick-carousel": "^1.6.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.9",
+    "webpack-notifier": "^1.5.0",
     "whatwg-fetch": "^1.0.0"
   }
 }
