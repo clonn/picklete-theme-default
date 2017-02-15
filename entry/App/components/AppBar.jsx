@@ -44,8 +44,10 @@ export default class AppBar extends Component {
                     <span className="c-line"></span>
                     <span className="c-line"></span>
                   </button>
+                  
                   {/*<AppBarCartButton mobile number={this.props.cartItemsNumber} onClick={this.handleCartBoxToggle}/>*/}
                 </div>
+                
                 <nav className={navClassName}>
                   <ul className="nav navbar-nav c-theme-nav">
                     <AppBarNavShopContainer/>

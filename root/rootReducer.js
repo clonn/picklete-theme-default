@@ -11,6 +11,7 @@ import member from 'Member/reducers/MemberReducers'
 import orders from 'Member/reducers/OrderReducers'
 import checkout from 'Checkout/reducers/CheckoutReducers'
 import slides from 'Home/reducers/SliderReducers'
+import company from 'App/reducers/GeneralDataReducers'
 
 export default combineReducers({
   modals,
@@ -21,5 +22,6 @@ export default combineReducers({
   member,
   checkout,
   orders,
-  slides
+  slides,
+  company
 });

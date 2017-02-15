@@ -1,0 +1,15 @@
+.footer-info {
+  color: #FFF;
+  font-size: 13px;
+  &>div {
+    line-height: 1.7;
+    &.copyright {
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  }
+}
+
+.c-postfooter {
+  height: 130px;
+}
