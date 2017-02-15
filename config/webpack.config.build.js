@@ -15,7 +15,7 @@ module.exports = {
   output: {
     path: path.join(clientDir, 'build'),
     filename: 'bundle.js',
-    publicPath: config.domain + '/build'
+    publicPath: config.domain + '/build/'
   },
 
   resolve: {
