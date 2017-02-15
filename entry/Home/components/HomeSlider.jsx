@@ -7,21 +7,21 @@ import 'Home/styles/HomeSlider.scss'
 export default class HomeSlider extends Component {
   render() {
     const settings = {
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 4500,
       dots: true,
       fade: true,
       infinite: true,
       speed: 1000,
       slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToScroll: 1,
     };
     return (
       <div className="home-slider">
         <Slider {...settings}>
           {this.props.slides.map((slide, index) => (
             <a href={slide.link} key={index}>
-              <div className="item" style={{backgroundImage: `url('${slide.cover}'`}}/>
+              <img src={slide.cover} className="item"/>
             </a>
           ))}
         </Slider>

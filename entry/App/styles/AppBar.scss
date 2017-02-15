@@ -1,8 +1,13 @@
+@import '~generic/styles/utils';
+
 .app-bar{
   border-bottom: 1px solid #e6eff3 !important;
   background: #FFF !important;
 }
 
+.c-layout-header {
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 4px, rgba(0, 0, 0, 0.1) 0px 1px 3px !important;
+}
 @include md-min {
   .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
     margin-top: 65px;

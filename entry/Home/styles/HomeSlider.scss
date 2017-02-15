@@ -1,13 +1,52 @@
-.slick-track {
+@import '~generic/styles/utils';
+.slick-prev {
+  left: 20px;
 }
+
+.slick-next {
+  right: 50px;
+  @include xs {
+    right: 35px;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 3;
+  &:before {
+    font-size: 50px;
+    text-shadow: rgba(0, 0, 0, 0.35) 0px 1px 6px, rgba(0, 0, 0, 0.15) 0px 1px 4px;
+    @include xs {
+      font-size: 35px;
+    }
+  }
+}
+
+.slick-dots {
+  bottom: 15px;
+  @include xs {
+    bottom: 8px;
+  }
+  & li {
+    & button:before {
+      text-shadow: rgba(0, 0, 0, 0.55) 1px 1px 3px, rgba(0, 0, 0, 0.45) 1px 1px 4px;
+      color: #FFF;
+      opacity: 0.35;
+    }
+    &.slick-active button:before {
+      color: #111;
+    }
+  }
+}
+
+.slick-slide {
+  height: initial;
+}
+
 .home-slider {
   width: 100%;
-  height: 500px;
+  background-color: #f7f7f7;
   & .item {
-    // width: 100%;
-    height: 500px;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    width: 100%;
   }
 }
