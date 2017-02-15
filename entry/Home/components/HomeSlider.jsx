@@ -7,7 +7,7 @@ import 'Home/styles/HomeSlider.scss'
 export default class HomeSlider extends Component {
   render() {
     const settings = {
-      autoplay: false,
+      autoplay: true,
       autoplaySpeed: 4500,
       dots: true,
       fade: true,
