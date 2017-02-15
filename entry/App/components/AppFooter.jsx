@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import format from 'date-fns/format'
+
 import 'App/styles/AppFooter.scss'
 
 class AppFooter extends Component {
@@ -13,7 +15,7 @@ class AppFooter extends Component {
                 <div className="footer-info">
                   <div className="address">地址：{company.address}</div>
                   <div className="phone">電話：{company.phone}</div>
-                  <div className="copyright c-font-grey">2017 &copy; {company.fullname}
+                  <div className="copyright c-font-grey">{format(new Date, 'YYYY')} &copy; {company.fullname}
                     <span className="c-font-grey-3"> All Rights Reserved.</span>
                   </div>
                 </div>
