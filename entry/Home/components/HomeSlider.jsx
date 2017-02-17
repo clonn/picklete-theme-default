@@ -15,6 +15,7 @@ export default class HomeSlider extends Component {
       speed: 1000,
       slidesToShow: 1,
       slidesToScroll: 1,
+      swipe: false,
     };
     return (
       <div className="home-slider">
