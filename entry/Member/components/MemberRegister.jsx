@@ -84,6 +84,10 @@ class MemberRegister extends Component {
     this.props.dispatch(changeModalActive('terms', true));
   }
 
+  openPrivacyModal = () => {
+    this.props.dispatch(changeModalActive('privacy', true));
+  }
+
   sendRegister = () => {
     const newMemberData = {
       email: this.state.email,
@@ -189,7 +193,8 @@ class MemberRegister extends Component {
             <label className="col-sm-2 control-label"></label>
             <div className="col-sm-10">
               <Checkbox className="policy-checkbox" checked={this.state.agreePolicy} onChange={this.handleAgreePolicy} />
-              <div className="policy-text">我同意<span onClick={this.openTermsModal}>會員條款</span></div>
+              <div className="policy-text">我同意 <span onClick={this.openTermsModal}>會員條款</span> 與 <span onClick={this.openPrivacyModal}>隱私權聲明</span>
+              </div>
             </div>
           </div>
           <div className="form-group">

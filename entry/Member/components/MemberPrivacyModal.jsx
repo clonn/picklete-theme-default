@@ -12,8 +12,8 @@ import { addNotification } from 'App/actions/NotificationActions'
 
 import 'Member/styles/MemberTermsModal.scss'
 
-class MemberTermsModal extends Component {
-  closeModal = () => this.props.dispatch(changeModalActive('terms', false))
+class MemberPrivacyModal extends Component {
+  closeModal = () => this.props.dispatch(changeModalActive('privacy', false))
   render() {
     return (
       <div>
@@ -22,16 +22,16 @@ class MemberTermsModal extends Component {
             className="member-terms-modal"
             isOpen={this.props.modalActive}
             type={DialogType.close}
-            title="會員服務條款"
+            title="隱私權聲明"
             isBlocking={true}
             onDismiss={this.closeModal}>
             <div className="terms-content">
-              <InnerHtml html={this.props.terms}/>
+              <InnerHtml html={this.props.privacy}/>
             </div>
             <DialogFooter>
-            <Button onClick={this.closeModal}>確認</Button>
-          </DialogFooter>
-        </Dialog>
+              <Button onClick={this.closeModal}>確認</Button>
+            </DialogFooter>
+          </Dialog>
         )}
       </div>
     )
@@ -39,6 +39,6 @@ class MemberTermsModal extends Component {
 }
 
 export default connect(state => ({
-  modalActive: state.modals.terms,
-  terms: state.company.data.terms
-}))(MemberTermsModal);
+  modalActive: state.modals.privacy,
+  privacy: state.company.data.privacy
+}))(MemberPrivacyModal);
