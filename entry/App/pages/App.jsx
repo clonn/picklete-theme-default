@@ -70,5 +70,5 @@ class App extends Component {
 
 export default connect(state => ({
   member: state.member,
-  company: state.company,
+  company: state.company
 }))(App);

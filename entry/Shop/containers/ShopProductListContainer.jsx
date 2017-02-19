@@ -11,7 +11,7 @@ class ShopProductListContainer extends Component {
     this.props.dispatch(addCartItem(item));
   }
 
-  render() {    
+  render() {
     let data = this.props.products.list.data;
     const {dptID, subDptID} = this.props.params;
 
