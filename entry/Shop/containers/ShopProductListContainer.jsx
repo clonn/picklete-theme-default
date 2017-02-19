@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import ShopProductListItem from 'Shop/components/ShopProductListItem'
-import Helmet from "react-helmet"
-
 import { addItem as addCartItem } from 'Cart/actions/CartActions'
 
 class ShopProductListContainer extends Component {
