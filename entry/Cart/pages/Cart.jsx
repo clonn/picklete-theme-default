@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import ShopDptListContainer from 'Shop/containers/ShopDptListContainer'
-import Helmet from "react-helmet"
 
 export default class Cart extends Component {
   render() {
     return (
       <div>
-        <Helmet title="Picklete - 購物車"/>
         <div className="c-layout-breadcrumbs-1 c-subtitle c-fonts-uppercase c-fonts-bold c-bordered c-bordered-both">
           <div className="container">
             <div className="c-page-title c-pull-left">

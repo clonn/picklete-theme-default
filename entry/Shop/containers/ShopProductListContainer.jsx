@@ -11,7 +11,7 @@ class ShopProductListContainer extends Component {
     this.props.dispatch(addCartItem(item));
   }
 
-  render() {
+  render() {    
     let data = this.props.products.list.data;
     const {dptID, subDptID} = this.props.params;
 
@@ -20,17 +20,8 @@ class ShopProductListContainer extends Component {
     } else {
       data = data.filter((product) => product.dpt.includes(parseInt(dptID)));
     }
-    
-    let titleStr = 'Picklete - 商品訂購'
-    if (this.props.dpts.status == "success") {
-      const dpt = this.props.dpts.data.filter(dpt => dpt.id == dptID)[0];
-      const subDpt = (subDptID)? dpt.DptSubs.filter(sd => sd.id == subDptID)[0] : null;
-      titleStr += ` - ${dpt.name} ${(subDptID)? ` - ${subDpt.name}` : ''}`;
-    }
-    
     return (
       <div className="c-bs-grid-small-space">
-        <Helmet title={titleStr}/>
         <div className="row">
           {data.map((product, index) => (
             <ShopProductListItem {...product} key={index} dptID={dptID} subDptID={subDptID} dispatchAddCartItem={this.dispatchAddCartItem}/>
