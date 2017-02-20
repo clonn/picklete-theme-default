@@ -3,8 +3,27 @@
 }
 
 .ms-DatePicker input {
-  &:focus,&:active,&:hover {
+  &:focus,
+  &:active,
+  &:hover {
     border-color: rgb(102, 175, 233);
   }
   border-radius: 4px;
+}
+
+.policy-checkbox {
+  display: inline;
+}
+
+.policy-text {
+  display: inline;
+  position: relative;
+  top: 8px;
+  left: 8px;
+
+  & > span {
+    color: #e15328;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }

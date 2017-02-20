@@ -1,7 +1,8 @@
 import { CHANGE_ACTIVE } from 'App/actions/ModalActions'
 
 const initialState = {
-  login: false
+  login: false,
+  terms: false
 };
 
 export default function modals(state = initialState, {type, payload}) {
