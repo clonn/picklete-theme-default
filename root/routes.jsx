@@ -20,21 +20,21 @@ import CheckoutInfoContainer from 'Checkout/containers/CheckoutInfoContainer'
 import CheckoutCompleteContainer from 'Checkout/containers/CheckoutCompleteContainer'
 
 
-function getDepartmentPageTitle(state, params) {
+function getDepartmentTitle(state, params) {
   let products = state.products.list.data;
   const {dptID, subDptID} = params;
   products = (subDptID)? products.filter(p => p.subDpt.includes(parseInt(subDptID))) : products.filter(p => p.dpt.includes(parseInt(dptID)));
   
-  let titleStr;
+  let title;
   if (state.dpts.status == "success") {
     const dpt = state.dpts.data.filter(dpt => dpt.id == dptID)[0];
     const subDpt = (subDptID)? dpt.DptSubs.filter(sd => sd.id == subDptID)[0] : null;
-    titleStr = dpt.name + ((subDptID)? ` - ${subDpt.name}` : '');
+    title = dpt.name + ((subDptID)? ` - ${subDpt.name}` : '');
   }
-  return titleStr;
+  return title;
 }
 
-function getProductPageTitle(state, params) {
+function getProductTitle(state, params) {
   let product = state.products.detail[params.productID];
   return (product && product.data) && product.data.name;
 }
@@ -43,8 +43,8 @@ export default (
   <Route path="/" component={App}>
     <IndexRoute name="home" component={Home}/>
     <Route path="shop" component={Shop} title="商品訂購">
-      <Route path="department/:dptID(/:subDptID)" component={ShopProductListContainer} title={getDepartmentPageTitle}/>
-      <Route path="product/:productID" component={ShopProductDetailContainer} title={getProductPageTitle}/>
+      <Route path="department/:dptID(/:subDptID)" component={ShopProductListContainer} title={getDepartmentTitle}/>
+      <Route path="product/:productID" component={ShopProductDetailContainer} title={getProductTitle}/>
     </Route>
 
     <Route path="cart" component={Cart} title="購物車">
