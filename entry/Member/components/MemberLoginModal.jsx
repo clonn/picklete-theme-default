@@ -29,8 +29,17 @@ class MemberLoginModal extends Component {
       return;
     }
     this.props.dispatch(login({
+      authType: 'local',
       email: this.state.email,
       password: this.state.password,
+    }))
+  }
+
+  handleLineLogin = () => {
+    this.props.dispatch(login({
+      authType: 'line',
+      email: null,
+      password: null,
     }))
   }
 
@@ -51,6 +60,11 @@ class MemberLoginModal extends Component {
                 <Link to="/member/register" onClick={this.closeModal} className="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">
                   註冊
                 </Link>
+              </div>
+              <div>
+                <button onClick={this.handleLineLogin}>
+                  Line Login
+                </button>
               </div>
             </ModalDialog>
           </ModalContainer>

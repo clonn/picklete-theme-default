@@ -10,17 +10,27 @@ export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_D
 export const AUTO_LOGIN = 'member.AUTO_LOGIN';
 export const REGISTER_MEMBER_DATA = createFetchActionType('member', 'REGISTER_MEMBER_DATA');
 
-export function login({email, password}) {
+export function login({authType, email, password}) {
+  let uri = `/api/auth/${authType}`;
+  let fetchOptions = {};
+
+  switch (authType) {
+    case 'local':
+      fetchOptions.method = 'POST';
+      fetchOptions.body = JSON.stringify({
+        identifier: email,
+        password
+      });
+      break;
+    case 'line':
+      return location.href = `${uri}`;
+      break;
+  }
+
   return {
     actionType: [LOGIN.request, LOGIN.success, LOGIN.error],
     shouldCallAPI: (state) => state.member.status != 'success',
-    callAPI: () => fetch('/api/auth/local', {
-      method: 'POST',
-      body: JSON.stringify({
-        identifier: email,
-        password
-      })
-    }),
+    callAPI: () => fetch(uri, fetchOptions),
     afterSuccess: ({dispatch, response}) => {
       localStorage.token = response.token;
       dispatch(fetchMemberData());
