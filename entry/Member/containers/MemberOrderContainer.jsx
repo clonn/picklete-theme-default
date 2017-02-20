@@ -23,7 +23,7 @@ class MemberOrderContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="member-order">
         {this.props.orders.data.reverse().map((order, index) => (
           <MemberOrderItem data={order} key={index}/>
         ))}

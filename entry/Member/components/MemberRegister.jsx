@@ -121,7 +121,7 @@ class MemberRegister extends Component {
     const zipcode = zipCodeData[this.state.city][this.state.region];
 
     return (
-      <div className="container">
+      <div className="container member-register">
         <h3>帳戶</h3>
         <div className="form-horizontal">
           <div className="form-group">
