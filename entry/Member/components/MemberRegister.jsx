@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
 import DatePickerWithInputField from 'generic/components/DatePickerWithInputField'
 import { registerMemberData } from 'Member/actions/MemberActions'
+import { changeModalActive } from 'App/actions/ModalActions'
+import { addNotification } from 'App/actions/NotificationActions'
+
 import zipCodeData from 'Checkout/constants/zipCodeData'
 
 import 'Member/styles/MemberRegister.scss'
@@ -21,7 +25,8 @@ class MemberRegister extends Component {
     region: '中正區',
     address: '',
     zipcode: '100',
-    birthDate: null
+    birthDate: null,
+    agreePolicy: false
   }
 
   handleMemberRegisterChange = (event) => {
@@ -68,6 +73,20 @@ class MemberRegister extends Component {
     });
   }
 
+  handleAgreePolicy = (e, checked) => {
+    this.setState({
+      agreePolicy: checked
+    });
+  }
+
+  openTermsModal = () => {
+    this.props.dispatch(changeModalActive('terms', true));
+  }
+
+  openPrivacyModal = () => {
+    this.props.dispatch(changeModalActive('privacy', true));
+  }
+
   sendRegister = () => {
     const newMemberData = {
       email: this.state.email,
@@ -82,6 +101,15 @@ class MemberRegister extends Component {
       region: this.state.region,
       address: this.state.address,
       zipcode: this.state.zipcode
+    }
+
+    if (!this.state.agreePolicy) {
+      this.props.dispatch(addNotification({
+        title: '會員條款',
+        message: '請先閱讀並勾選同意會員條款',
+        type: 'error'
+      }));
+      return;
     }
 
     this.props.dispatch(registerMemberData(newMemberData));
@@ -159,15 +187,24 @@ class MemberRegister extends Component {
               <input value={this.state.address} id="address" type="text" className="form-control" placeholder="請輸入地址" onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
-        </div>
-        <div className="form-horizontal">
           <div className="form-group">
-            <button type="button" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">
-              取消填寫
-            </button>
-            <button type="button" className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold" onClick={this.sendRegister}>
-              申請會員
-            </button>
+            <label className="col-sm-2 control-label"></label>
+            <div className="col-sm-10">
+              <Checkbox className="policy-checkbox" checked={this.state.agreePolicy} onChange={this.handleAgreePolicy} />
+              <div className="policy-text">我同意 <span onClick={this.openTermsModal}>會員條款</span> 與 <span onClick={this.openPrivacyModal}>隱私權聲明</span>
+              </div>
+            </div>
+          </div>
+          <div className="form-group">
+            <label className="col-sm-2 control-label"></label>
+            <div className="col-sm-10">
+              <button type="button" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">
+                取消填寫
+              </button>
+              <button type="button" className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold" onClick={this.sendRegister}>
+                申請會員
+              </button>
+            </div>
           </div>
         </div>
       </div>
