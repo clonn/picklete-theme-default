@@ -62,7 +62,7 @@ class MemberLoginModal extends Component {
                 </Link>
               </div>
               <div className="divider">
-                <div className="divider-text">其他登入方式</div>
+                <h5 className="divider-text">其他登入方式</h5>
                 <hr/>
               </div>
               <div>
