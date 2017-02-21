@@ -61,9 +61,13 @@ class MemberLoginModal extends Component {
                   註冊
                 </Link>
               </div>
+              <div className="divider">
+                <div className="divider-text">其他登入方式</div>
+                <hr/>
+              </div>
               <div>
-                <button onClick={this.handleLineLogin}>
-                  Line Login
+                <button className="social-btn" type="button" title="Line 登入" onClick={this.handleLineLogin}>
+                  <img className="logo" src={'https://static.line.naver.jp/line_regulation/files/ver2/LINE_Icon.png'} />
                 </button>
               </div>
             </ModalDialog>
