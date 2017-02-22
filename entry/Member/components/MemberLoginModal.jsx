@@ -29,8 +29,17 @@ class MemberLoginModal extends Component {
       return;
     }
     this.props.dispatch(login({
+      authType: 'local',
       email: this.state.email,
       password: this.state.password,
+    }))
+  }
+
+  handleLineLogin = () => {
+    this.props.dispatch(login({
+      authType: 'line',
+      email: null,
+      password: null,
     }))
   }
 
@@ -51,6 +60,15 @@ class MemberLoginModal extends Component {
                 <Link to="/member/register" onClick={this.closeModal} className="btn c-btn-dark-1 btn c-btn-uppercase c-btn-bold c-btn-slim c-btn-border-2x c-btn-square c-btn-signup">
                   註冊
                 </Link>
+              </div>
+              <div className="divider">
+                <h5 className="divider-text">其他登入方式</h5>
+                <hr/>
+              </div>
+              <div>
+                <button className="social-btn" type="button" title="Line 登入" onClick={this.handleLineLogin}>
+                  <img className="logo" src={'https://static.line.naver.jp/line_regulation/files/ver2/LINE_Icon.png'} />
+                </button>
               </div>
             </ModalDialog>
           </ModalContainer>
