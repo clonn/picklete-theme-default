@@ -11,6 +11,7 @@ class AppBarNavShopContainer extends Component {
   static contextTypes = {
     params: PropTypes.object.isRequired,
   }
+  
   render() {
     const dpts = handleDptData({
       activeDptID: this.context.params.dptID,

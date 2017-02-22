@@ -4,7 +4,6 @@ import ShopProductDetailPhotos from 'Shop/components/ShopProductDetailPhotos'
 import ShopProductDetailQuantity from 'Shop/components/ShopProductDetailQuantity'
 import ShopProductDetailTabs from 'Shop/components/ShopProductDetailTabs'
 import InnerHtml from 'generic/components/InnerHtml'
-import Helmet from "react-helmet"
 
 export default class ShopProductDetail extends Component {
   state = {
@@ -28,12 +27,8 @@ export default class ShopProductDetail extends Component {
   }
 
   render() {
-    let titleStr = 'Picklete - 商品訂購';
-    titleStr += (this.props.name)? ` - ${this.props.name}` : '';
-
     return (
       <div>
-        <Helmet title={titleStr}/>
         <div className="c-shop-product-details-2 c-opt-1">
           <div className="row">
             <div className="col-md-6">

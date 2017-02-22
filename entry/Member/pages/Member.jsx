@@ -13,17 +13,13 @@ class Member extends Component {
               <li>
                 <a href="#">會員專區</a>
               </li>
-              <li>/</li>
-              <li className="c-state_active">訂單管理</li>
+              {/*<li>/</li>*/}
+              <li className="c-state_active"></li>
             </ul>
           </div>
         </div>
         <div className="container">
-          <div className="c-content-box c-size-lg">
-            <div className="container">
-              {this.props.children}
-            </div>
-          </div>
+          {this.props.children}
         </div>
       </div>
     );

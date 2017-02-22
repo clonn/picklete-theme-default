@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Helmet from "react-helmet"
 import {browserHistory} from 'react-router'
 
 import MemberOrderItem from 'Member/components/MemberOrderItem'
@@ -24,8 +23,7 @@ class MemberOrderContainer extends Component {
 
   render() {
     return (
-      <div>
-        <Helmet title="Picklete - 會員專區 - 訂單管理"/>
+      <div className="member-order">
         {this.props.orders.data.reverse().map((order, index) => (
           <MemberOrderItem data={order} key={index}/>
         ))}

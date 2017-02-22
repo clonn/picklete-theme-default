@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Helmet from "react-helmet"
 import { Checkbox } from 'office-ui-fabric-react/lib/Checkbox';
 
 import DatePickerWithInputField from 'generic/components/DatePickerWithInputField'
@@ -122,8 +121,7 @@ class MemberRegister extends Component {
     const zipcode = zipCodeData[this.state.city][this.state.region];
 
     return (
-      <div className="container">
-        <Helmet title="Picklete - 會員專區 - 註冊會員"/>        
+      <div className="container member-register">
         <h3>帳戶</h3>
         <div className="form-horizontal">
           <div className="form-group">
