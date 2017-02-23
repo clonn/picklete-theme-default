@@ -47,11 +47,9 @@ module.exports = {
       }
     }, {
       test: /\.css$/,
-      // loader: 'style-loader!css-loader!resolve-url-loader'
        loader: ExtractTextPlugin.extract('css-loader!resolve-url-loader')
     }, {
       test: /\.scss$/,
-      // loader: 'style-loader!css-loader!resolve-url-loader!sass-loader?sourceMap'
       loader: ExtractTextPlugin.extract('css-loader!resolve-url-loader!sass-loader?sourceMap')
     }, {
       test: /\.(jpe?g|JPE?G|png|PNG|gif|GIF|svg|SVG|woff|woff2|eot|ttf)(\?v=\d+\.\d+\.\d+)?$/,
