@@ -106,7 +106,7 @@ class MemberRegister extends Component {
     if (!this.state.agreePolicy) {
       this.props.dispatch(addNotification({
         title: '會員條款',
-        message: '請先閱讀並勾選同意會員條款',
+        message: '請先閱讀並勾選同意會員條款與隱私權聲明',
         type: 'error'
       }));
       return;

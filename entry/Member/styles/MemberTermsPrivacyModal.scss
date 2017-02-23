@@ -1,6 +1,6 @@
 @import '~generic/styles/utils';
 
-.member-terms-modal {
+.register-text-modal {
   & .ms-Dialog-main {
     max-width: 500px;
     
@@ -17,7 +17,7 @@
   & h1 {
     font-size: 25px;
   }
-  & .terms-content {
+  & .content {
     max-width: 500px;
     max-height: 500px;
     overflow-y: scroll;
