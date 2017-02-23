@@ -20,7 +20,6 @@ class MemberTermsModal extends Component {
         isOpen={this.props.modalActive}
         type={DialogType.close}
         title="會員服務條款"
-        isBlocking={true}
         onDismiss={this.closeModal}
         className="register-text-modal">
         <div className="content">

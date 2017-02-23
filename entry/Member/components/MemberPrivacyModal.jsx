@@ -20,7 +20,6 @@ class MemberPrivacyModal extends Component {
         isOpen={this.props.modalActive}
         type={DialogType.close}
         title="隱私權聲明"
-        isBlocking={true}
         onDismiss={this.closeModal}
         className="register-text-modal">
         <div className="content">
