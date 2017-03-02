@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Icon from 'generic/components/Icon'
-import {DropdownButton, MenuItem} from 'react-bootstrap'
+import DropdownButton from 'react-bootstrap/lib/DropdownButton'
+import MenuItem from 'react-bootstrap/lib/MenuItem'
 import AppBarCartBox from 'App/components/AppBarCartBox'
 
 import 'App/styles/AppBarCartDropdown.scss'
