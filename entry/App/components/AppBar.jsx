@@ -30,6 +30,21 @@ export default class AppBar extends Component {
   render() {
     const headerClassName = classNames({'c-mega-menu-shown': this.state.mobileMenuActive}, 'c-layout-header', 'c-layout-header-4', 'c-layout-header-default-mobile', 'c-layout-header-fixed', 'app-bar');
     const navClassName = classNames({'c-shown': this.state.mobileMenuActive}, 'c-mega-menu', 'c-pull-right', 'c-mega-menu-dark', 'c-mega-menu-dark-mobile');
+    return (
+      <div className="app-bar">
+        <header>
+          <AppBarLogo img={this.props.logo}/>
+          <div className="app-bar-container">
+            {/*<AppBarNavShopContainer/>*/}
+            {this.props.member.status && (
+              <AppBarNavMember/>
+            )}
+            <AppBarCartDropdownContainer/>
+            {/*<AppBarLoginButton/>*/}
+          </div>
+        </header>
+      </div>
+    );
 
     return (
       <div className="c-header-cart-shown">

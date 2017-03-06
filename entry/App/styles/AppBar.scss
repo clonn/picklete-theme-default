@@ -1,36 +1,90 @@
 @import '~generic/styles/utils';
 
-.app-bar{
-  border-bottom: 1px solid #e6eff3 !important;
-  background: #FFF !important;
-}
-
-.c-layout-header {
+$app-bar-height: 60px;
+.app-bar {
+  width: 100%;
+  height: $app-bar-height;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 4px, rgba(0, 0, 0, 0.1) 0px 1px 3px !important;
-}
-@include md-min {
-  .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
-    margin-top: 65px;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: #FFF;
+
+  & > header {
+    height: $app-bar-height;
+    margin: 0px auto;
+
+    @include lg {
+      width: 1170px;
+    }
+    @include md {
+      width: 970px;
+    }
+
+    @include sm {
+      width: 750px;
+    }
+
+    @include xs {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    & > .logo {
+      display: inline-block;
+      height: $app-bar-height;
+      padding: 6px 0px;
+      & > img {
+        height: 50px;
+        margin-top: 0px;
+      }
+    }
+
+    & > .app-bar-container {
+      display: inline-block;
+      float: right;
+    }
   }
-  .c-layout-header.app-bar {
-    z-index: 5 !important;
-  }
 }
 
 
-.c-brand {
-  margin: 10px 0px !important;
-}
 
-.c-logo > img {
-  height: 50px;
-  margin: 0px;
-}
 
-nav.c-mega-menu > ul > li:nth-child(1) > ul {
-  top: 65px;
-}
 
-.dropdown-menu.c-menu-type-inline{
-  border: none;
-}
+
+//---------------------------------------------
+// .app-bar{
+//   border-bottom: 1px solid #e6eff3 !important;
+//   background: #FFF !important;
+// }
+
+// .c-layout-header {
+//   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 4px, rgba(0, 0, 0, 0.1) 0px 1px 3px !important;
+// }
+// @include md-min {
+//   .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
+//     margin-top: 65px;
+//   }
+//   .c-layout-header.app-bar {
+//     z-index: 5 !important;
+//   }
+// }
+
+
+// .c-brand {
+//   margin: 10px 0px !important;
+// }
+
+// .c-logo > img {
+//   height: 50px;
+//   margin: 0px;
+// }
+
+// nav.c-mega-menu > ul > li:nth-child(1) > ul {
+//   top: 65px;
+// }
+
+// .dropdown-menu.c-menu-type-inline{
+//   border: none;
+// }

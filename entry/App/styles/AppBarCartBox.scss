@@ -1,5 +1,93 @@
+@import '~generic/styles/utils';
+
 .c-cart-menu-content {
-  & > p {
+  &>p {
     margin-top: 8px;
   }
 }
+
+.c-cart-menu {
+  border: 1px solid #f3f3f3;
+  display: none;
+  width: 390px;
+  background: #ffffff;
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  @include xs {
+    width: 100vw;
+    position: fixed;
+    left: 0px;
+    top: 60px;
+  }
+}
+
+.c-cart-menu {
+  display: block;
+}
+
+.c-cart-menu .c-cart-menu-title {
+  padding: 20px;
+}
+
+.c-cart-menu .c-cart-menu-title>.c-cart-menu-float-l {
+  float: left;
+  display: inline-block;
+}
+
+.c-cart-menu .c-cart-menu-title>.c-cart-menu-float-r {
+  float: right;
+  display: inline-block;
+}
+
+.c-cart-menu .c-cart-menu-items {
+  padding: 0;
+  max-height: 500px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.c-cart-menu .c-cart-menu-items>li {
+  border-top: 1px solid #f3f3f3;
+  padding: 20px;
+  width: 100%;
+  list-style: none;
+  overflow: auto;
+}
+
+.c-cart-menu .c-cart-menu-items>li>img {
+  width: 80px;
+  height: 80px;
+  float: left;
+  margin-right: 20px;
+}
+
+.c-cart-menu .c-cart-menu-items>li>.c-cart-menu-content {
+  padding-left: 100px;
+}
+
+.c-cart-menu .c-cart-menu-items>li>.c-cart-menu-content .c-item-name,
+.c-cart-menu .c-cart-menu-items>li>.c-cart-menu-content .c-item-price {
+  line-height: 1em;
+}
+
+.c-cart-menu .c-cart-menu-items>li>.c-cart-menu-close {
+  float: right;
+  margin-top: 10px;
+}
+
+.c-cart-menu .c-cart-menu-items>li>.c-cart-menu-close>a {
+  font-size: 28px;
+  font-family: arial;
+  font-weight: 100;
+  color: #ddd;
+}
+
+.c-cart-menu .c-cart-menu-footer {
+  border-top: 1px solid #f3f3f3;
+  padding: 20px;
+  text-align: center;
+}
+
+

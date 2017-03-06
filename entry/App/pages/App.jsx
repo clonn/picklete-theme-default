@@ -54,7 +54,7 @@ class App extends Component {
     return (
       <div>
         <AppDocumentTitleContainer routes={this.props.routes} params={this.props.params}/>
-        <div className="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-topbar c-layout-header-topbar-collapse c-page-on-scroll">
+        <div>
           <AppBar member={this.props.member} logo={this.props.company.data.logo}/>
           <div className="page-container c-layout-page">
             {this.props.children}
