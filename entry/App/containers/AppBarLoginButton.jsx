@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { changeModalActive } from 'App/actions/ModalActions'
 import { logout } from 'Member/actions/MemberActions'
 
+import 'App/styles/AppBarLoginButton.scss'
+
 class AppBarLoginButton extends Component {
   openLoginModal = () => {
     this.props.dispatch(changeModalActive('login', true));
@@ -14,7 +16,7 @@ class AppBarLoginButton extends Component {
 
   render() {
     return (
-      <li>
+      <div className="login-button">
         {(this.props.member.status)? (
           <div style={{marginTop: 16}}>
             {this.props.member.data.fullName}
@@ -27,8 +29,7 @@ class AppBarLoginButton extends Component {
             登入
           </a>
         )}
-
-      </li>
+      </div>
     )
   }
 }

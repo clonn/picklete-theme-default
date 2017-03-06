@@ -39,8 +39,8 @@ export default class AppBar extends Component {
             {this.props.member.status && (
               <AppBarNavMember/>
             )}
+            <AppBarLoginButton/>            
             <AppBarCartDropdownContainer/>
-            {/*<AppBarLoginButton/>*/}
           </div>
         </header>
       </div>
