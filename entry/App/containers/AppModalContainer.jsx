@@ -13,7 +13,7 @@ class AppModalContainer extends Component {
         <MemberTermsModal/>
         <MemberPrivacyModal/>
       </div>
-    )
+    );
   }
 }
 

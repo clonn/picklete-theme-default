@@ -27,6 +27,7 @@ export default class AppBarNav extends Component {
       });
     }
   }
+
   handleDirectRoute = (url) => {
     if (url) {
       browserHistory.push(url);
@@ -34,13 +35,10 @@ export default class AppBarNav extends Component {
       this.setState({
         opendItemIndex: null
       });
-      // this.props.handleToggleDropdown(false);
     }
   }
 
-
   componentDidMount() {
-    console.log(this.listItems);
     this.props.dispathRenderNavComplete({
       items: this.listItems
     });
@@ -52,9 +50,8 @@ export default class AppBarNav extends Component {
     });
   }
 
-  
   render() {
-    const listItems = (
+    this.listItems = (
       this.props.data.map(({name, url = '', children = []}, index) => (
       <ListItem 
         primaryText={name} 
@@ -75,12 +72,10 @@ export default class AppBarNav extends Component {
         ))}
       />
     )));
-    this.listItems = listItems;
 
-    
     return (
       <List style={{width: this.props.width}}>
-        {listItems}
+        {this.listItems}
       </List>
     );
   }

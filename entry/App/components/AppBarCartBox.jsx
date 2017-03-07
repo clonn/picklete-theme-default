@@ -35,6 +35,6 @@ export default class AppBarCartBox extends Component {
           </div>
         )}
       </div>
-    )
+    );
   }
 }

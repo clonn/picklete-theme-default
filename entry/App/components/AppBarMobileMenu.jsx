@@ -47,8 +47,7 @@ class AppBarMobileMenu extends Component {
           pullRight
           noCaret>
           <List style={{width: '100%'}} className="mobile-nav">
-            {navs
-            .filter(({shouldDisplay = () => true}) => shouldDisplay())
+            {navs.filter(({shouldDisplay = () => true}) => shouldDisplay())
             .map(({name, key, url = ''}, index) => (
               <ListItem 
                 primaryText={name} 
@@ -58,17 +57,15 @@ class AppBarMobileMenu extends Component {
                 index={index}
                 key={index}
                 style={{cursor: 'pointer'}}
-                nestedItems={window.navItems[key]}
-              />
+                nestedItems={window.navItems[key]}/>
             ))}
           </List>
         </DropdownButton>
       </div>
-      
-
     );
   }
 }
+
 export default connect(state => ({
   isLogged: Boolean(state.member.status),
   navs: state.navs

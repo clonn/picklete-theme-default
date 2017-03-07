@@ -29,8 +29,8 @@ class AppBarNavMemberContainer extends Component {
           width={180}
           dispathRenderNavComplete={this.dispathRenderNavComplete}/>
       </DropdownButton>
-
-    )
+    );
   }
 }
+
 export default connect(state => ({}))(AppBarNavMemberContainer);

@@ -37,6 +37,7 @@ class AppBarNavShopContainer extends Component {
       activeSubDptID: this.context.params.subDptID,
       data: this.props.dpts.data
     });
+    
     const data = dpts.map(dpt => ({
       name: dpt.name,
       // url: `/shop/department/${dpt.id}`,
