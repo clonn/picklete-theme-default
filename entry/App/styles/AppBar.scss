@@ -56,6 +56,10 @@ $app-bar-height: 60px;
         & > .btn-group {
           vertical-align: top;
           padding: 0px 2px;
+
+          & > ul {
+            margin-top: -1px;
+          }
         }
       }
 

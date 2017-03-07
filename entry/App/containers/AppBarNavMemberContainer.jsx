@@ -26,7 +26,7 @@ class AppBarNavMemberContainer extends Component {
         className="app-bar-nav">
         <AppBarNav 
           data={navData} 
-          width={230}
+          width={180}
           dispathRenderNavComplete={this.dispathRenderNavComplete}/>
       </DropdownButton>
 
