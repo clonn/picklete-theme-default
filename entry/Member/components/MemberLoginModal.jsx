@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { ModalContainer, ModalDialog } from 'react-modal-dialog'
+import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
 import { login } from 'Member/actions/MemberActions'
 import { changeModalActive} from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
@@ -45,6 +46,35 @@ class MemberLoginModal extends Component {
 
   render() {
     return (
+      <Dialog
+        isOpen={this.props.modalActive && !this.props.member.status}
+        type={DialogType.close}
+        title="登入會員"
+        onDismiss={this.closeModal}
+        className="member-login-modal">
+        <label className="control-label">Email</label>
+        <input value={this.state.email} onChange={this.handleEmailChange} type="text" className="form-control c-square c-theme" placeholder="帳號"/>
+        <label className="control-label">密碼</label>
+        <input value={this.state.password} onChange={this.handlePasswordChange} type="password" className="form-control c-square c-theme" placeholder="密碼"/>
+        
+        <div className="controls">
+          <button onClick={this.handleLogin} type="submit" className="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">登入</button>
+          <Link to="/member/register" onClick={this.closeModal} className="btn c-theme-btn btn-md c-btn-uppercase c-btn-bold c-btn-square c-btn-login">註冊</Link>
+        </div>
+        
+        <div className="divider">
+          <h5 className="divider-text">其他登入方式</h5>
+          <hr/>
+        </div>
+        <div>
+          <button className="social-btn" type="button" title="Line 登入" onClick={this.handleLineLogin}>
+            <img className="logo" src={'https://static.line.naver.jp/line_regulation/files/ver2/LINE_Icon.png'} />
+          </button>
+        </div>
+        
+      </Dialog>
+    );
+    return (
       <div>
         {this.props.modals.login && !this.props.member.status && (
           <ModalContainer onClose={this.closeModal}>
@@ -79,6 +109,6 @@ class MemberLoginModal extends Component {
 }
 
 export default connect(state => ({
-  modals: state.modals,
+  modalActive: state.modals.login,
   member: state.member
 }))(MemberLoginModal);

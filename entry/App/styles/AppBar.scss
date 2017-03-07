@@ -8,7 +8,7 @@ $app-bar-height: 60px;
   position: fixed;
   top: 0px;
   left: 0px;
-  z-index: 10;
+  z-index: 4;
   background-color: #FFF;
 
   & > header {
@@ -28,7 +28,7 @@ $app-bar-height: 60px;
 
     @include xs {
       padding-left: 20px;
-      padding-right: 20px;
+      padding-right: 10px;
     }
 
     & > .logo {
@@ -44,47 +44,22 @@ $app-bar-height: 60px;
     & > .app-bar-container {
       display: inline-block;
       float: right;
+
+      & > .navs {
+        display: inline-block;
+        vertical-align: top;
+
+        @include xs {
+          display: none;
+        }
+        
+        & > .btn-group {
+          vertical-align: top;
+          padding: 0px 2px;
+        }
+      }
+
+      
     }
   }
 }
-
-
-
-
-
-
-//---------------------------------------------
-// .app-bar{
-//   border-bottom: 1px solid #e6eff3 !important;
-//   background: #FFF !important;
-// }
-
-// .c-layout-header {
-//   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 4px, rgba(0, 0, 0, 0.1) 0px 1px 3px !important;
-// }
-// @include md-min {
-//   .c-layout-header-fixed.c-layout-header-topbar .c-layout-page {
-//     margin-top: 65px;
-//   }
-//   .c-layout-header.app-bar {
-//     z-index: 5 !important;
-//   }
-// }
-
-
-// .c-brand {
-//   margin: 10px 0px !important;
-// }
-
-// .c-logo > img {
-//   height: 50px;
-//   margin: 0px;
-// }
-
-// nav.c-mega-menu > ul > li:nth-child(1) > ul {
-//   top: 65px;
-// }
-
-// .dropdown-menu.c-menu-type-inline{
-//   border: none;
-// }
