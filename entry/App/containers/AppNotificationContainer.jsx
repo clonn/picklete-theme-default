@@ -17,7 +17,7 @@ class AppNotificationContainer extends Component {
   render() {
     return (
       <NotificationSystem ref={this.setRef} />
-    )
+    );
   }
 }
 

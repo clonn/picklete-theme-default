@@ -1,0 +1,43 @@
+@import '~generic/styles/utils';
+
+.mobile-menu {
+  display: inline-block;
+  padding: 10px;
+  height: 60px;
+
+  @include sm-min {
+    display: none;
+  }
+
+  & button {
+    font-size: 25px;
+    padding: 6px 8px;
+
+    & > i {
+      margin-right: 0px !important;
+    }
+  }
+
+  & > .dropdown > ul {
+    margin-top: -1px;
+    padding: 0px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    & > .mobile-nav{
+      background-color: #FFF;
+      width: 100vw;
+      position: fixed;
+      left: 0px;
+      top: 60px;
+      box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+      border-top: 1px solid #EEE;
+      max-height: calc(100vh - 60px);
+      overflow-y: scroll;
+    }
+  }
+
+  
+
+}

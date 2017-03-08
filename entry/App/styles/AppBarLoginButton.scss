@@ -1,0 +1,11 @@
+.login-button {
+  display: inline-block;
+  height: 60px;
+  padding: 14px 10px;
+  vertical-align: top;
+
+
+  & > a {
+    margin-bottom: 0px !important;
+  }
+}

@@ -1,0 +1,12 @@
+@import '~generic/styles/utils';
+
+.app-bar-nav {
+  height: 60px;
+  border: none !important;
+  font-size: 17px !important;
+  color: #69727c !important;
+
+  &:hover {
+    // color: #AAA !important;
+  }
+}

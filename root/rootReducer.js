@@ -12,8 +12,10 @@ import orders from 'Member/reducers/OrderReducers'
 import checkout from 'Checkout/reducers/CheckoutReducers'
 import slides from 'Home/reducers/SliderReducers'
 import company from 'App/reducers/GeneralDataReducers'
+import navs from 'App/reducers/AppBarNavReducers'
 
 export default combineReducers({
+  navs,
   modals,
   notifications,
   dpts,

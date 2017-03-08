@@ -11,7 +11,6 @@ class AppFooterContainer extends Component {
     } else {
       return <div/>
     }
-    
   }
 }
 

@@ -1,12 +1,21 @@
-.member-login-modal {
-  width: 80% !important;
-  max-width: 450px;
-  top: calc(50vh - 150px) !important;
+.member-login-modal > .ms-Dialog-main {
+  width: 90%;
+  max-width: 350px;
   & label {
     margin-top: 10px;
   }
   & button[type="submit"] {
     margin-top: 15px;
+  }
+
+  & .controls {
+    text-align: center;
+    padding: 18px 0px 13px;
+
+    & > button {
+      margin-top: 0px !important;
+    }
+    
   }
 
   .divider {
@@ -15,8 +24,8 @@
 
     .divider-text {
       position: absolute;
-      top: -1%;
-      left: 37.5%;
+      top: -2px;
+      left: calc(50% - 52px);
       padding: 0px 10px;
       background-color: white;
     }
