@@ -47,9 +47,8 @@ export default class CheckoutInfo extends Component {
       if (data) {
         newData[key] = data;
       }
-    })
-    console.log(this.state.user);
-    console.log(newData);
+    });
+    
     this.setState({
       user: {
         ...this.state.user,
