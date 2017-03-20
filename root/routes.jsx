@@ -10,6 +10,7 @@ import Checkout from 'Checkout/pages/Checkout'
 import Member from 'Member/pages/Member'
 import MemberInfo from 'Member/pages/MemberInfo'
 import MemberOrderContainer from 'Member/containers/MemberOrderContainer'
+import MemberEditPersonalDataContainer from 'Member/containers/MemberEditPersonalDataContainer'
 import MemberRegister from 'Member/components/MemberRegister'
 
 import ShopProductListContainer from 'Shop/containers/ShopProductListContainer'
@@ -52,8 +53,9 @@ export default (
     </Route>
 
     <Route path="member" component={Member} title="會員專區">
-      <Route path="orders" component={MemberOrderContainer} title="訂單管理"/>
       <Route path="register" component={MemberRegister} title="註冊會員"/>
+      <Route path="edit" component={MemberEditPersonalDataContainer} title="編輯會員資料"/>
+      <Route path="orders" component={MemberOrderContainer} title="訂單管理"/>
     </Route>
 
     <Route path="checkout" component={Checkout} title="結帳購買">

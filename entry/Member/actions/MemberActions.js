@@ -4,12 +4,8 @@ import { browserHistory } from 'react-router'
 import { changeModalActive } from 'App/actions/ModalActions'
 import { addNotification } from 'App/actions/NotificationActions'
 
+// 普通登入
 export const LOGIN = createFetchActionType('member', 'LOGIN');
-export const LOGOUT = createFetchActionType('member', 'LOGOUT');
-export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_DATA');
-export const AUTO_LOGIN = 'member.AUTO_LOGIN';
-export const REGISTER_MEMBER_DATA = createFetchActionType('member', 'REGISTER_MEMBER_DATA');
-
 export function login({authType, email, password}) {
   let uri = `/api/auth/${authType}`;
   let fetchOptions = {};
@@ -39,6 +35,7 @@ export function login({authType, email, password}) {
         title: '登入成功',
         type: 'success'
       }));
+      browserHistory.push('/');      
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();
@@ -60,12 +57,16 @@ export function login({authType, email, password}) {
   };
 }
 
+// 自動登入
+export const AUTO_LOGIN = 'member.AUTO_LOGIN';
 export function autoLogin() {
   return {
     type: AUTO_LOGIN
   }
 }
 
+// 獲取會員個人資料
+export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_DATA');
 export function fetchMemberData() {
   return {
     actionType: [FETCH_MEMBER_DATA.request, FETCH_MEMBER_DATA.success, FETCH_MEMBER_DATA.error],
@@ -78,17 +79,26 @@ export function fetchMemberData() {
   }
 }
 
-
+// 登出
+export const LOGOUT = createFetchActionType('member', 'LOGOUT');
 export function logout() {
   localStorage.removeItem('token');
   return {
     actionType: [LOGOUT.request, LOGOUT.success, LOGOUT.error],
     callAPI: () => fetch('/api/logout'),
-    handleResponse: (httpResponse) => httpResponse.text()
+    handleResponse: (httpResponse) => httpResponse.text(),
+    afterSuccess: ({dispatch}) => {
+      dispatch(addNotification({
+        title: '登出成功',
+        type: 'success'
+      }));
+      browserHistory.push('/');      
+    }
   }
 }
 
-
+// 註冊新會員
+export const REGISTER_MEMBER_DATA = createFetchActionType('member', 'REGISTER_MEMBER_DATA');
 export function registerMemberData( newMemberData ) {
   return {
     actionType: [REGISTER_MEMBER_DATA.request, REGISTER_MEMBER_DATA.success, REGISTER_MEMBER_DATA.error],
@@ -101,6 +111,38 @@ export function registerMemberData( newMemberData ) {
       dispatch(autoLogin());
       dispatch(fetchMemberData());
       browserHistory.push('/');
+    },
+    afterError: async({dispatch, httpResponse}) => {
+      const body = await httpResponse.text();
+      const message = body || '請聯絡管理人員';
+
+      dispatch(addNotification({
+        title: '註冊失敗',
+        message: message,
+        type: 'error'
+      }));
+    }
+  }
+}
+
+// 更新會員個人資料
+export const UPDATE_MEMBER_DATA = createFetchActionType('member', 'UPDATE_MEMBER_DATA');
+export function updateMemberData(memberData) {
+  return {
+    actionType: [UPDATE_MEMBER_DATA.request, UPDATE_MEMBER_DATA.success, UPDATE_MEMBER_DATA.error],
+    callAPI: () => fetch('/api/me', {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(memberData)
+    }),
+    handleResponse: (httpResponse) => httpResponse.text(),    
+    afterSuccess: ({dispatch}) => {
+      dispatch(addNotification({
+        title: '會員資料修改成功',
+        type: 'success'
+      }));
     },
     afterError: async({dispatch, httpResponse}) => {
       const body = await httpResponse.text();

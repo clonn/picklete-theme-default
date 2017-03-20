@@ -5,6 +5,9 @@ import AppBarNav from 'App/components/AppBarNav'
 import { renderNavComplete } from 'App/actions/AppBarNavAction'
 
 const navData = [{
+  name: '編輯會員資料',
+  url: '/member/edit'
+}, {
   name: '訂單管理',
   url: '/member/orders'
 }];
