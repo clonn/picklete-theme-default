@@ -31,8 +31,6 @@ i18n.use(i18nXhr).init({
   }
 });
 
-window.i18n = i18n;
-
 injectTapEventPlugin();
 
 const store = createStore(
