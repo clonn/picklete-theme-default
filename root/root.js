@@ -14,6 +14,25 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
+import i18n from 'i18next';
+import i18nXhr from 'i18next-xhr-backend'
+import { I18nextProvider } from 'react-i18next'
+
+localStorage.locale = localStorage.locale || 'zh';
+
+i18n.use(i18nXhr).init({
+  lng: localStorage.locale,
+  fallbackLng: 'zh',
+  ns: [],
+  defaultNS: '',
+  debug: false,
+  backend: {
+    loadPath: (lngs, namespaces) => `/locales/${lngs[0]}/${namespaces[0]}.json`
+  }
+});
+
+window.i18n = i18n;
+
 injectTapEventPlugin();
 
 const store = createStore(
@@ -27,7 +46,9 @@ window.store = store;
 ReactDOM.render((
   <MuiThemeProvider muiTheme={getMuiTheme()}>
     <Provider store={store}>
-      <Router children={routes} history={browserHistory}/>
+      <I18nextProvider i18n={i18n}>
+        <Router children={routes} history={browserHistory}/>
+      </I18nextProvider>
     </Provider>
   </MuiThemeProvider>
 ), document.getElementById('root'));

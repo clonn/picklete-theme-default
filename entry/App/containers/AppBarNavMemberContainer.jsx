@@ -18,14 +18,19 @@ class AppBarNavMemberContainer extends Component {
   }
 
   render() {
+    const { lang } = this.props;
+    const navDataWithLang = navData.map(nav => ({
+      ...nav,
+      name: lang(nav.name)
+    }))
     return (
       <DropdownButton
-        title="會員專區"
+        title={lang('會員專區')}
         pullRight
         noCaret
         className="app-bar-nav">
         <AppBarNav 
-          data={navData} 
+          data={navDataWithLang} 
           width={180}
           dispathRenderNavComplete={this.dispathRenderNavComplete}/>
       </DropdownButton>
@@ -33,4 +38,6 @@ class AppBarNavMemberContainer extends Component {
   }
 }
 
-export default connect(state => ({}))(AppBarNavMemberContainer);
+export default connect()(
+  translate('App/AppBarNav')(AppBarNavMemberContainer)
+);

@@ -32,6 +32,7 @@ class AppBarNavShopContainer extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const dpts = handleDptData({
       activeDptID: this.context.params.dptID,
       activeSubDptID: this.context.params.subDptID,
@@ -49,7 +50,7 @@ class AppBarNavShopContainer extends Component {
 
     return (
       <DropdownButton 
-        title="商品訂購"
+        title={lang('商品訂購')}
         open={this.state.isDropdownOpend} 
         onToggle={this.handleToggleDropdown} 
         pullRight
@@ -67,4 +68,4 @@ class AppBarNavShopContainer extends Component {
 
 export default connect(state => ({
   dpts: state.dpts
-}))(AppBarNavShopContainer);
+}))(translate('App/AppBarNav')(AppBarNavShopContainer));

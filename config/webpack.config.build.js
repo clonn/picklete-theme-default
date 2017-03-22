@@ -80,7 +80,8 @@ module.exports = {
 
     new webpack.ProvidePlugin({
       _: 'lodash',
-      moment: 'moment'
+      moment: 'moment',
+      translate: 'generic/modules/translate.js'
     }),
 
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),

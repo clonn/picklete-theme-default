@@ -4,7 +4,7 @@ import InnerHtml from 'generic/components/InnerHtml'
 
 import 'Shop/styles/ShopProductDetailTabs.scss'
 
-export default class ShopProductDetailTabs extends Component {
+class ShopProductDetailTabs extends Component {
   state = {
     activeTab: 0
   }
@@ -16,6 +16,7 @@ export default class ShopProductDetailTabs extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const tabs = [{
       title: '商品特色',
       content: this.props.characteristic
@@ -30,7 +31,7 @@ export default class ShopProductDetailTabs extends Component {
           <ul className="nav nav-justified" role="tablist">
             {tabs.map((tab, index) => (
               <li role="presentation" className={classNames({active: index == this.state.activeTab})} key={index}>
-                <a className="c-font-uppercase c-font-bold" onClick={this.handleChangeTab.bind(null, index)}>{tab.title}</a>
+                <a className="c-font-uppercase c-font-bold" onClick={this.handleChangeTab.bind(null, index)}>{lang(tab.title)}</a>
               </li>
             ))}
           </ul>
@@ -46,3 +47,5 @@ export default class ShopProductDetailTabs extends Component {
     )
   }
 }
+
+export default translate('Shop/ShopProductDetail')(ShopProductDetailTabs)

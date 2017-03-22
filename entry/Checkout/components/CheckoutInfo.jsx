@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import zipCodeData from 'Checkout/constants/zipCodeData'
 import 'Checkout/styles/CheckoutInfo.scss'
 
-export default class CheckoutInfo extends Component {
+class CheckoutInfo extends Component {
   state = {
     paymentMethod: 'Credit',
     orderItems: [],
@@ -111,6 +111,7 @@ export default class CheckoutInfo extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const citys = Object.keys(zipCodeData);
     const userRegions = Object.keys(zipCodeData[this.state.user.city]);
     const shipmentRegions = Object.keys(zipCodeData[this.state.shipment.city]);
@@ -122,19 +123,19 @@ export default class CheckoutInfo extends Component {
       <div className="c-shop-form-1">
         <div className="row">
           <div className="col-md-7 c-padding-20">
-            <h3 className="c-font-bold c-font-uppercase c-font-24">購買人資訊</h3>
+            <h3 className="c-font-bold c-font-uppercase c-font-24">{lang('購買人資訊')}</h3>
             <div className="row">
               <div className="col-md-12">
                 <div className="row">
                   <div className="form-group col-md-6">
-                    <label className="control-label">中文姓名</label>
-                    <input value={this.state.user.username} onChange={this.handleStateChange.bind(null, 'user', 'username')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
+                    <label className="control-label">{lang('姓名')}</label>
+                    <input value={this.state.user.username} onChange={this.handleStateChange.bind(null, 'user', 'username')} type="text" className="form-control c-square c-theme" placeholder={lang('姓名')}/>
                   </div>
                   <div className="form-group col-md-6">
-                    <label className="control-label">性別</label>
+                    <label className="control-label">{lang('性別')}</label>
                     <select className="form-control c-square c-theme">
-                      <option value="male">男</option>
-                      <option value="female">女</option>
+                      <option value="male">{lang('男')}</option>
+                      <option value="female">{lang('女')}</option>
                     </select>
                   </div>
                 </div>
@@ -142,13 +143,13 @@ export default class CheckoutInfo extends Component {
             </div>
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="control-label">手機號碼</label>
-                <input value={this.state.user.mobile} onChange={this.handleStateChange.bind(null, 'user', 'mobile')} type="text" className="form-control c-square c-theme" placeholder="手機號碼"/>
+                <label className="control-label">{lang('手機號碼')}</label>
+                <input value={this.state.user.mobile} onChange={this.handleStateChange.bind(null, 'user', 'mobile')} type="text" className="form-control c-square c-theme" placeholder={lang('手機號碼')}/>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-4">
-                <label className="control-label">聯絡地址</label>
+                <label className="control-label">{lang('聯絡地址')}</label>
                 <select value={this.state.user.city} onChange={this.handleCityChange.bind(null, 'user')} className="form-control c-square c-theme">
                   {citys.map((city, index) => (
                     <option value={city} key={index}>{city}</option>
@@ -163,40 +164,40 @@ export default class CheckoutInfo extends Component {
                 </select>
               </div>
               <div className="form-group col-md-4">
-                <input value={userZipCode} type="text" className="form-control c-square c-theme address-options" placeholder="郵遞區號" readOnly/>
+                <input value={userZipCode} type="text" className="form-control c-square c-theme address-options" readOnly/>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-12">
-                <input value={this.state.user.address} onChange={this.handleStateChange.bind(null, 'user', 'address')} type="text" className="form-control c-square c-theme" placeholder="請輸入詳細地址"/>
+                <input value={this.state.user.address} onChange={this.handleStateChange.bind(null, 'user', 'address')} type="text" className="form-control c-square c-theme" placeholder={lang('請輸入詳細地址')}/>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-12">
-                <label className="control-label">備註</label>
-                <textarea className="buyer-remark form-control c-square c-theme" placeholder="請輸入備註..."/>
+                <label className="control-label">{lang('備註')}</label>
+                <textarea className="buyer-remark form-control c-square c-theme" placeholder={lang('請輸入備註')}/>
               </div>
             </div>
-            <h3 className="c-font-bold c-font-uppercase c-font-24">收件人資訊</h3>
+            <h3 className="c-font-bold c-font-uppercase c-font-24">{lang('收件人資訊')}</h3>
             <div className="row">
               <div className="col-md-12">
                 <div className="row">
                   <div className="form-group col-md-6">
-                    <label className="control-label">中文姓名</label>
-                    <input value={this.state.shipment.username} onChange={this.handleStateChange.bind(null, 'shipment', 'username')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
+                    <label className="control-label">{lang('姓名')}</label>
+                    <input value={this.state.shipment.username} onChange={this.handleStateChange.bind(null, 'shipment', 'username')} type="text" className="form-control c-square c-theme" placeholder={lang('姓名')}/>
                   </div>
                 </div>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-6">
-                <label className="control-label">手機號碼</label>
-                <input value={this.state.shipment.mobile} onChange={this.handleStateChange.bind(null, 'shipment', 'mobile')} type="text" className="form-control c-square c-theme" placeholder="手機號碼"/>
+                <label className="control-label">{lang('手機號碼')}</label>
+                <input value={this.state.shipment.mobile} onChange={this.handleStateChange.bind(null, 'shipment', 'mobile')} type="text" className="form-control c-square c-theme" placeholder={lang('手機號碼')}/>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-4">
-                <label className="control-label">收件地址</label>
+                <label className="control-label">{lang('收件地址')}</label>
                 <select value={this.state.shipment.city} onChange={this.handleCityChange.bind(null, 'shipment')} className="form-control c-square c-theme">
                   {citys.map((city, index) => (
                     <option value={city} key={index}>{city}</option>
@@ -211,25 +212,25 @@ export default class CheckoutInfo extends Component {
                 </select>
               </div>
               <div className="form-group col-md-4">
-                <input value={shipmentZipCode} type="text" className="form-control c-square c-theme address-options" placeholder="郵遞區號" readOnly/>
+                <input value={shipmentZipCode} type="text" className="form-control c-square c-theme address-options" readOnly/>
               </div>
             </div>
             <div className="row">
               <div className="form-group col-md-12">
-                <input value={this.state.shipment.address} onChange={this.handleStateChange.bind(null, 'shipment', 'address')} type="text" className="form-control c-square c-theme" placeholder="請輸入詳細地址"/>
+                <input value={this.state.shipment.address} onChange={this.handleStateChange.bind(null, 'shipment', 'address')} type="text" className="form-control c-square c-theme" placeholder={lang('請輸入詳細地址')}/>
               </div>
             </div>
           </div>
           <div className="col-md-5">
             <div className="c-content-bar-1 c-align-left c-bordered c-theme-border c-shadow">
-              <h1 className="c-font-bold c-font-uppercase c-font-24">您的訂單</h1>
+              <h1 className="c-font-bold c-font-uppercase c-font-24">{lang('您的訂單')}</h1>
               <ul className="c-order list-unstyled">
                 <li className="row c-margin-b-15">
                   <div className="col-md-6 c-font-20">
-                    <h2>商品</h2>
+                    <h2>{lang('商品')}</h2>
                   </div>
                   <div className="col-md-6 c-font-20">
-                    <h2>總價</h2>
+                    <h2>{lang('總價')}</h2>
                   </div>
                 </li>
                 <li className="row c-border-bottom"></li>
@@ -246,7 +247,7 @@ export default class CheckoutInfo extends Component {
                 ))}
 
                 <li className="row c-margin-b-15 c-margin-t-15">
-                  <div className="col-md-6 c-font-20">商品總價</div>
+                  <div className="col-md-6 c-font-20">{lang('商品總價')}</div>
                   <div className="col-md-6 c-font-20">
                     <p className="">$
                       <span className="c-subtotal">{this.props.totalPrice}</span>
@@ -255,15 +256,15 @@ export default class CheckoutInfo extends Component {
                 </li>
                 <li className="row c-border-top c-margin-b-15"></li>
                 <li className="row c-margin-b-15 c-margin-t-15">
-                  <div className="col-md-6 c-font-20">運費</div>
+                  <div className="col-md-6 c-font-20">{lang('運費')}</div>
                   <div className="col-md-6 c-font-20">
-                    <p className="c-subtotal">{(shippingFee == 0)? '免運費' : `$${shippingFee}`}
+                    <p className="c-subtotal">{(shippingFee == 0)? lang('免運費') : `$${shippingFee}`}
                     </p>
                   </div>
                 </li>
                 <li className="row c-margin-b-15 c-margin-t-15">
                   <div className="col-md-6 c-font-20">
-                    <p className="c-font-30">結帳總價</p>
+                    <p className="c-font-30">{lang('結帳總價')}</p>
                   </div>
                   <div className="col-md-6 c-font-20">
                     <p className="c-font-bold c-font-30">$
@@ -273,8 +274,8 @@ export default class CheckoutInfo extends Component {
                 </li>
                 <li className="row">
                   <div className="form-group col-md-12" role="group">
-                    <button onClick={this.props.dispatchCheckout.bind(null, this.state)} className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">送出訂單</button>
-                    <Link to="/cart" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">取消</Link>
+                    <button onClick={this.props.dispatchCheckout.bind(null, this.state)} className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">{lang('送出訂單')}</button>
+                    <Link to="/cart" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">{lang('取消')}</Link>
                   </div>
                 </li>
               </ul>
@@ -285,3 +286,6 @@ export default class CheckoutInfo extends Component {
     );
   }
 }
+
+export default translate('Checkout/CheckoutInfo')(CheckoutInfo)
+

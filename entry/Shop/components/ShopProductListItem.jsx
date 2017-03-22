@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+
 import queryString from 'query-string'
 import 'Shop/styles/ShopProductListItem.scss'
 
-export default class ShopProductListItem extends Component {
+class ShopProductListItem extends Component {
   static defaultProps = {
     colMd: 3,
     colSm: 6
@@ -20,6 +21,7 @@ export default class ShopProductListItem extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const dptQuery = queryString.stringify({
       dptID: this.props.dptID,
       subDptID: this.props.subDptID
@@ -34,7 +36,7 @@ export default class ShopProductListItem extends Component {
 
             <div className="c-overlay-wrapper">
               <div className="c-overlay-content">
-                <Link to={`/shop/product/${this.props.id}?${dptQuery}`} className="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">查看商品</Link>
+                <Link to={`/shop/product/${this.props.id}?${dptQuery}`} className="btn btn-md c-btn-grey-1 c-btn-uppercase c-btn-bold c-btn-border-1x c-btn-square">{lang('查看商品')}</Link>
               </div>
             </div>
             <div className="c-bg-img-center c-overlay-object" data-height="height" style={{backgroundImage: `url(${this.props.photo})`}}></div>
@@ -47,10 +49,10 @@ export default class ShopProductListItem extends Component {
           </div>
           <div className="btn-group btn-group-justified" role="group">
             <div className="btn-group c-border-top" role="group">
-              <Link to={`/shop/product/${this.props.id}?${dptQuery}`} className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">查看詳細</Link>
+              <Link to={`/shop/product/${this.props.id}?${dptQuery}`} className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{lang('查看詳細')}</Link>
             </div>
             <div className="btn-group c-border-left c-border-top" role="group">
-              <a onClick={this.props.dispatchAddCartItem.bind(null, this.getCartItemData())} href="javascript:;" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">加入購物車</a>
+              <a onClick={this.props.dispatchAddCartItem.bind(null, this.getCartItemData())} href="javascript:;" className="btn btn-sm c-btn-white c-btn-uppercase c-btn-square c-font-grey-3 c-font-white-hover c-bg-red-2-hover c-btn-product">{lang('加入購物車')}</a>
             </div>
           </div>
         </div>
@@ -58,3 +60,5 @@ export default class ShopProductListItem extends Component {
     )
   }
 }
+
+export default translate('Shop/ShopProductList')(ShopProductListItem)

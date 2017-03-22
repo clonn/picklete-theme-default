@@ -1,0 +1,23 @@
+{
+  "訂單結帳完成": "Checkout is complete",
+  "謝謝，您的訂單已經成功送出。": "Thanks for ordering.",
+  "訂單編號": "Serial Number",
+  "購買日期": "Data",
+  "結帳總價": "Checkout Total",
+  "付款方式": "Payment",
+  "圖片": "Photo",
+  "簡述": "Desciption",
+  "商品單價": "Unit Price",
+  "品項總價": "Total Price",
+  "查看商品": "Detail",
+  "購買數量": "Quantity",
+  "訂購人資訊": "Buyer Info",
+  "姓名": "Full Name",
+  "電話": "Phone Number",
+  "運送地址": "Shipping Address",
+
+  "paymentMethod": {
+    "Credit": "Credit Card"
+  }
+
+}

@@ -31,11 +31,12 @@ class AppBarMobileMenu extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const navs = [{
-      name: '商品訂購',
+      name: lang('商品訂購'),
       key: 'shop'
     }, {
-      name: '會員專區',
+      name: lang('會員專區'),
       key: 'member',
       shouldDisplay: () => this.props.isLogged
     }];
@@ -57,7 +58,8 @@ class AppBarMobileMenu extends Component {
                 index={index}
                 key={index}
                 style={{cursor: 'pointer'}}
-                nestedItems={window.navItems[key]}/>
+                nestedItems={window.navItems[key]}
+              />
             ))}
           </List>
         </DropdownButton>
@@ -69,4 +71,4 @@ class AppBarMobileMenu extends Component {
 export default connect(state => ({
   isLogged: Boolean(state.member.status),
   navs: state.navs
-}))(AppBarMobileMenu);
+}))(translate('App/AppBarNav')(AppBarMobileMenu));

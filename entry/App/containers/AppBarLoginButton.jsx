@@ -15,8 +15,9 @@ class AppBarLoginButton extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const callback = (this.props.member.status)? this.dispatchLogout : this.openLoginModal;
-    const text = (this.props.member.status)? '登出' : '登入';
+    const text = (this.props.member.status)? lang('登出') : lang('登入');
     return (
       <div className="login-button">
         <a onClick={callback} href="javascript:;" className="c-btn-border-opacity-04 c-btn btn-no-focus c-btn-header btn btn-sm c-btn-border-1x c-btn-dark c-btn-circle c-btn-uppercase c-btn-sbold">
@@ -29,4 +30,4 @@ class AppBarLoginButton extends Component {
 
 export default connect(state => ({
   member: state.member
-}))(AppBarLoginButton);
+}))(translate('Member/MemberLogin')(AppBarLoginButton));

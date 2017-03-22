@@ -14,13 +14,13 @@ export default class Shop extends Component {
             <div className="c-page-title c-pull-left">
               <h3 className="c-font-uppercase c-font-sbold">商品訂購</h3>
             </div>
-            <ul className="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
+            {/*<ul className="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
               <li>
                 <a href="shop-product-grid.html">Product Grid</a>
               </li>
               <li>/</li>
               <li className="c-state_active">Jango Components</li>
-            </ul>
+            </ul>*/}
           </div>
         </div>
         <div className="container">

@@ -1,0 +1,25 @@
+{
+  "結帳資訊": "Checkout Info",
+  "購買人資訊": "Buyer Info",
+  "收件人資訊": "Recipient Info",
+  "姓名": "Full Name",
+  "性別": "Gender",
+  "男": "Male",
+  "女": "Female",
+  "手機號碼": "Phone Number",
+  "聯絡地址": "Adress",
+  "請輸入詳細地址": "Please type the detail of address.",
+  "備註": "Remarks",
+  "請輸入備註": "Please write some remarks as you need...",
+  "收件地址": "Adress",
+
+  "您的訂單": "Your Order",
+  "商品": "Products",
+  "總價": "Total Price",
+  "商品總價": "Products Total",
+  "運費": "Shipping Fee",
+  "免運費": "Free",
+  "結帳總價": "Checkout Total",
+  "送出訂單": "Submit",
+  "取消": "Cancel"
+}

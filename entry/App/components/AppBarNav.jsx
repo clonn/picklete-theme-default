@@ -53,25 +53,26 @@ export default class AppBarNav extends Component {
   render() {
     this.listItems = (
       this.props.data.map(({name, url = '', children = []}, index) => (
-      <ListItem 
-        primaryText={name} 
-        primaryTogglesNestedList
-        //disabled={children.length > 0}
-        onClick={() => this.handleDirectRoute(url)}
-        open={this.state.opendItemIndex == index}
-        onNestedListToggle={this.handleToggleItem}
-        index={index}
-        key={index}
-        style={{cursor: 'pointer'}}
-        nestedItems={children.map((childItem, index) => (
-          <ListItem 
-            key={index}
-            primaryText={childItem.name} 
-            onClick={() => this.handleDirectRoute(childItem.url)}
-          />
-        ))}
-      />
-    )));
+        <ListItem 
+          primaryText={name} 
+          primaryTogglesNestedList
+          //disabled={children.length > 0}
+          onClick={() => this.handleDirectRoute(url)}
+          open={this.state.opendItemIndex == index}
+          onNestedListToggle={this.handleToggleItem}
+          index={index}
+          key={index}
+          style={{cursor: 'pointer'}}
+          nestedItems={children.map((childItem, index) => (
+            <ListItem 
+              key={index}
+              primaryText={childItem.name} 
+              onClick={() => this.handleDirectRoute(childItem.url)}
+            />
+          ))}
+        />
+      )
+    ));
 
     return (
       <List style={{width: this.props.width}}>

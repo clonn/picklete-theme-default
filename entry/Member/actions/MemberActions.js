@@ -10,27 +10,31 @@ export const FETCH_MEMBER_DATA = createFetchActionType('member', 'FETCH_MEMBER_D
 export const AUTO_LOGIN = 'member.AUTO_LOGIN';
 export const REGISTER_MEMBER_DATA = createFetchActionType('member', 'REGISTER_MEMBER_DATA');
 
-export function login({authType, email, password}) {
-  let uri = `/api/auth/${authType}`;
-  let fetchOptions = {};
-
+export const login = ({authType = 'local', email, password}) => (dispatch) => {
+  const uri = `/api/auth/${authType}`;
   switch (authType) {
-    case 'local':
-      fetchOptions.method = 'POST';
-      fetchOptions.body = JSON.stringify({
-        identifier: email,
-        password
-      });
-      break;
     case 'line':
       return location.href = `${uri}`;
-      break;
   }
 
-  return {
+  if (!email || !password) {
+    dispatch(addNotification({
+      title: '登入失敗',
+      message: '請填寫會員 Email 與密碼',
+      type: 'error'
+    }));
+  }
+
+  dispatch({
     actionType: [LOGIN.request, LOGIN.success, LOGIN.error],
     shouldCallAPI: (state) => state.member.status != 'success',
-    callAPI: () => fetch(uri, fetchOptions),
+    callAPI: () => fetch(uri, {
+      method: 'POST',
+      body: JSON.stringify({
+        identifier: email,
+        password
+      })
+    }),
     afterSuccess: ({dispatch, response}) => {
       localStorage.token = response.token;
       dispatch(fetchMemberData());
@@ -57,7 +61,7 @@ export function login({authType, email, password}) {
         }));
       }
     }
-  };
+  });
 }
 
 export function autoLogin() {
