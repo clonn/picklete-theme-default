@@ -25,8 +25,8 @@ i18n.use(i18nXhr).init({
   fallbackLng: 'zh',
   ns: [],
   defaultNS: '',
-  debug: true,
-  returnObjects: false,
+  debug: false,
+  returnObjects: true,
   backend: {
     loadPath: (lngs, namespaces) => `/locales/${lngs[0]}/${namespaces[0]}.json`
   }
