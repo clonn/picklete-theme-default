@@ -1,0 +1,36 @@
+{
+  "帳號資料": "Account Information",
+  "Email": "Email",
+  "請填寫 Email": "Please type the email.",
+  "密碼": "Password",
+  "請填入 8 - 12 位字元，含英文及數字": "Please type 8 ~ 12 bits characters, including english letters and numbers.",
+  "確認密碼": "Password Confirm",
+  "請再次輸入密碼": "Please type the password again.",
+
+  "基本資料": "Basic Information",
+  "姓名": "Full Name",
+  "請填寫完整的本名": "Please type your full name.",
+  "手機號碼": "Phone Number",
+  "請提供正確手機號碼，以供聯絡必要之用": "Please type your phone number which we can contact you.",
+  "生日": "Birthday",
+  "選擇您的生日": "Choose your birthday.",
+  "聯絡地址": "Address",
+  "請輸入詳細地址": "Please type the detail of address.",
+
+  "會員服務條款": "Member Terms",
+  "隱私權聲明": "Privacy Statement",
+
+  "確認": "Confirm",
+  "我同意": "I agree with",
+
+  "取消填寫": "Cancel",
+  "申請會員": "Submit",
+
+  "DatePickerStrings": {
+    "months": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "shortMonths": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    "shortDays": ["S", "M", "T", "W", "T", "F", "S"],
+    "goToToday": "Go to today"
+  }
+}

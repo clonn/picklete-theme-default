@@ -67,7 +67,6 @@ class MemberLoginModal extends Component {
   }
 }
 
-console.log(translate);
 export default connect(state => ({
   modalActive: state.modals.login,
   member: state.member

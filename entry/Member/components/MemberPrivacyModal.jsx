@@ -15,18 +15,19 @@ import 'Member/styles/MemberTermsPrivacyModal.scss'
 class MemberPrivacyModal extends Component {
   closeModal = () => this.props.dispatch(changeModalActive('privacy', false))
   render() {
+    const { lang } = this.props;
     return (
       <Dialog
         isOpen={this.props.modalActive}
         type={DialogType.close}
-        title="隱私權聲明"
+        title={lang('隱私權聲明')}
         onDismiss={this.closeModal}
         className="register-text-modal">
         <div className="content">
           <InnerHtml html={this.props.privacy}/>
         </div>
         <DialogFooter>
-          <Button onClick={this.closeModal}>確認</Button>
+          <Button onClick={this.closeModal}>{lang('確認')}</Button>
         </DialogFooter>
       </Dialog>
     )
@@ -36,4 +37,4 @@ class MemberPrivacyModal extends Component {
 export default connect(state => ({
   modalActive: state.modals.privacy,
   privacy: state.company.data.privacy
-}))(MemberPrivacyModal);
+}))(translate('Member/MemberRegister')(MemberPrivacyModal));

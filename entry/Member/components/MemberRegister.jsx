@@ -116,56 +116,57 @@ class MemberRegister extends Component {
   }
 
   render() {
+    const { lang } = this.props;
     const citys = Object.keys(zipCodeData);
     const regions = Object.keys(zipCodeData[this.state.city]);
     const zipcode = zipCodeData[this.state.city][this.state.region];
 
     return (
       <div className="container member-register">
-        <h3>帳戶</h3>
+        <h3>{lang('帳號資料')}</h3>
         <div className="form-horizontal">
           <div className="form-group">
-            <label htmlFor="email" className="col-sm-2 control-label">帳號</label>
+            <label htmlFor="email" className="col-sm-2 control-label">{lang('Email')}</label>
             <div className="col-sm-10">
-              <input value={this.state.email} id="email" type="text" className="form-control" placeholder="請填寫電子郵件信箱" onChange={this.handleMemberRegisterChange} required/>
+              <input value={this.state.email} id="email" type="text" className="form-control" placeholder={lang('請填寫 Email')} onChange={this.handleMemberRegisterChange} required/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="password" className="col-sm-2 control-label">密碼</label>
+            <label htmlFor="password" className="col-sm-2 control-label">{lang('密碼')}</label>
             <div className="col-sm-10">
-              <input value={this.state.password} id="password" type="password" className="form-control" placeholder="請填入 8 - 12 位字元，含英文及數字" onChange={this.handleMemberRegisterChange} required/>
+              <input value={this.state.password} id="password" type="password" className="form-control" placeholder={lang('請填入 8 - 12 位字元，含英文及數字')} onChange={this.handleMemberRegisterChange} required/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="passwordAgain" className="col-sm-2 control-label">確認密碼</label>
+            <label htmlFor="passwordAgain" className="col-sm-2 control-label">{lang('確認密碼')}</label>
             <div className="col-sm-10">
-              <input value={this.state.passwordAgain} id="passwordAgain" type="password" className="form-control" placeholder="請再次輸入密碼" onChange={this.handleMemberRegisterChange} required/>
+              <input value={this.state.passwordAgain} id="passwordAgain" type="password" className="form-control" placeholder={lang('請再次輸入密碼')} onChange={this.handleMemberRegisterChange} required/>
             </div>
           </div>
         </div>
 
-        <h3>基本資料</h3>
+        <h3>{lang('基本資料')}</h3>
         <div className="form-horizontal">
           <div className="form-group">
-            <label htmlFor="fullName" className="col-sm-2 control-label">中文姓名</label>
+            <label htmlFor="fullName" className="col-sm-2 control-label">{lang('姓名')}</label>
             <div className="col-sm-10">
-              <input value={this.state.fullName} id="fullName" type="text" className="form-control" placeholder="請填寫本名" onChange={this.handleMemberRegisterChange} required/>
+              <input value={this.state.fullName} id="fullName" type="text" className="form-control" placeholder={lang('請填寫完整的本名')} onChange={this.handleMemberRegisterChange} required/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="mobile" className="col-sm-2 control-label">手機號碼</label>
+            <label htmlFor="mobile" className="col-sm-2 control-label">{lang('手機號碼')}</label>
             <div className="col-sm-10">
-              <input value={this.state.mobile} id="mobile" type="text" className="form-control" placeholder="請提供正確手機號碼，以供聯絡必要之用" onChange={this.handleMemberRegisterChange} required/>
+              <input value={this.state.mobile} id="mobile" type="text" className="form-control" placeholder={lang('請提供正確手機號碼，以供聯絡必要之用')} onChange={this.handleMemberRegisterChange} required/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="birthYear" className="col-sm-2 control-label">生日</label>
+            <label htmlFor="birthYear" className="col-sm-2 control-label">{lang('生日')}</label>
             <div className="col-sm-10">
-              <DatePickerWithInputField value={this.state.birthDate} onSelectDate={this.handleBirthDayChange}/>
+              <DatePickerWithInputField value={this.state.birthDate} onSelectDate={this.handleBirthDayChange} placeholder={lang('選擇您的生日')}/>
             </div>
           </div>
           <div className="form-group">
-            <label htmlFor="address" className="col-sm-2 control-label">聯絡地址</label>
+            <label htmlFor="address" className="col-sm-2 control-label">{lang('聯絡地址')}</label>
             <div className="col-sm-1">
               <input value={zipcode} id="zipcode" type="text" ref={(input) => this.zipcode = input}  className="form-control" readOnly/>
             </div>
@@ -184,14 +185,14 @@ class MemberRegister extends Component {
               </select>
             </div>
             <div className="col-sm-5">
-              <input value={this.state.address} id="address" type="text" className="form-control" placeholder="請輸入地址" onChange={this.handleMemberRegisterChange}/>
+              <input value={this.state.address} id="address" type="text" className="form-control" placeholder={lang('請輸入詳細地址')} onChange={this.handleMemberRegisterChange}/>
             </div>
           </div>
           <div className="form-group">
             <label className="col-sm-2 control-label"></label>
             <div className="col-sm-10">
               <Checkbox className="policy-checkbox" checked={this.state.agreePolicy} onChange={this.handleAgreePolicy} />
-              <div className="policy-text">我同意 <span onClick={this.openTermsModal}>會員條款</span> 與 <span onClick={this.openPrivacyModal}>隱私權聲明</span>
+              <div className="policy-text">{lang('我同意')} <span onClick={this.openTermsModal}>{lang('會員服務條款')}</span> & <span onClick={this.openPrivacyModal}>{lang('隱私權聲明')}</span>
               </div>
             </div>
           </div>
@@ -199,10 +200,10 @@ class MemberRegister extends Component {
             <label className="col-sm-2 control-label"></label>
             <div className="col-sm-10">
               <button type="button" className="btn btn-lg btn-default c-btn-square c-btn-uppercase c-btn-bold">
-                取消填寫
+                {lang('取消填寫')}
               </button>
               <button type="button" className="btn btn-lg c-theme-btn c-btn-square c-btn-uppercase c-btn-bold" onClick={this.sendRegister}>
-                申請會員
+                {lang('申請會員')}
               </button>
             </div>
           </div>
@@ -214,4 +215,4 @@ class MemberRegister extends Component {
 
 export default connect(state => ({
   member: state.user
-}))(MemberRegister);
+}))(translate('Member/MemberRegister')(MemberRegister));

@@ -33,7 +33,7 @@ class CheckoutComplete extends Component {
             </li>
             <li>
               <h3>{lang('付款方式')}</h3>
-              <p>{lang(`paymentMethod.${this.props.order.paymentMethod}`)}</p>
+              <p>{lang('paymentMethod')[this.props.order.paymentMethod]}</p>
             </li>
           </ul>
         </div>
