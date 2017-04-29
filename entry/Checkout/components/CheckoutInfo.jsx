@@ -9,7 +9,7 @@ export default class CheckoutInfo extends Component {
     orderItems: [],
     shippingRegion: '台灣本島',
     user: {
-      username: '',
+      fullName: '',
       mobile: '',
       taxId: '',
       zipcode: '100',
@@ -18,7 +18,7 @@ export default class CheckoutInfo extends Component {
       address: ''
     },
     shipment: {
-      username: '',
+      fullName: '',
       mobile: '',
       email: '',
       zipcode: '100',
@@ -41,25 +41,22 @@ export default class CheckoutInfo extends Component {
     shipment: {}
   }
 
-  autoFillInfoFromMemberData({username, mobile, city, region, zipcode, address}) {
+  autoFillInfoFromMemberData(memberData) {
+    let newData = {};
+    _.forEach(memberData, (data, key) => {
+      if (data) {
+        newData[key] = data;
+      }
+    });
+    
     this.setState({
       user: {
         ...this.state.user,
-        username,
-        mobile,
-        city,
-        region,
-        zipcode,
-        address
+        ...newData
       },
       shipment: {
-        ...this.state.shipment,
-        username,
-        mobile,
-        city,
-        region,
-        zipcode,
-        address
+        ...this.state.user,
+        ...newData
       }
     });
   }
@@ -128,7 +125,7 @@ export default class CheckoutInfo extends Component {
                 <div className="row">
                   <div className="form-group col-md-6">
                     <label className="control-label">中文姓名</label>
-                    <input value={this.state.user.username} onChange={this.handleStateChange.bind(null, 'user', 'username')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
+                    <input value={this.state.user.fullName} onChange={this.handleStateChange.bind(null, 'user', 'fullName')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
                   </div>
                   <div className="form-group col-md-6">
                     <label className="control-label">性別</label>
@@ -183,7 +180,7 @@ export default class CheckoutInfo extends Component {
                 <div className="row">
                   <div className="form-group col-md-6">
                     <label className="control-label">中文姓名</label>
-                    <input value={this.state.shipment.username} onChange={this.handleStateChange.bind(null, 'shipment', 'username')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
+                    <input value={this.state.shipment.fullName} onChange={this.handleStateChange.bind(null, 'shipment', 'fullName')} type="text" className="form-control c-square c-theme" placeholder="中文姓名"/>
                   </div>
                 </div>
               </div>
