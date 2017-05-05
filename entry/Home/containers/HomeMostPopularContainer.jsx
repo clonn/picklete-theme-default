@@ -15,7 +15,7 @@ class HomeMostPopularContainer extends React.Component {
       <div className="c-content-box c-size-md c-overflow-hide c-bs-grid-small-space c-bg-grey-1">
         <div className="container">
           <div className="c-content-title-1">
-            <h3 className="c-font-uppercase c-center c-font-bold">Most Popular</h3>
+            <h3 className="c-font-uppercase c-center c-font-bold">最新商品</h3>
             <div className="c-line-center c-theme-bg"></div>
           </div>
           <div className="row">

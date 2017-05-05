@@ -16,10 +16,10 @@ export default class Shop extends Component {
             </div>
             <ul className="c-page-breadcrumbs c-theme-nav c-pull-right c-fonts-regular">
               <li>
-                <a href="shop-product-grid.html">Product Grid</a>
+                <a href="shop-product-grid.html">商品介紹</a>
               </li>
               <li>/</li>
-              <li className="c-state_active">Jango Components</li>
+              <li className="c-state_active">-</li>
             </ul>
           </div>
         </div>
